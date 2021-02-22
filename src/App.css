@@ -1,38 +1,320 @@
-.App {
+ul{
+  list-style-type: none;
+}
+/* .main{
+  background: url('./images/270164.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+
+
+hr{
+  border-top: 1px solid rgb(16, 3, 59);
+}
+
+/*********************HEADER*****************/
+header{
+  background-color: transparent;
+  height: auto;
+}
+
+header nav .navbar-brand, .logo{
+  width: 200px;
+  height: 100px;
+}
+
+
+header nav .navbar-brand img, .logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.main-nav-links {
+  justify-content: space-around;
+}
+.main-nav-links ul{
+  
+  padding: .4rem 2rem;
+  border-radius: .75rem;
+}
+
+.main-nav-links ul li a{
+  font-size: 22px;
+    color: rgb(255, 255, 255) !important;
+    margin: 0 1rem;
+}
+
+
+.connect-btn button{
+  background: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    transition: all .3s ease;
+}
+
+.connect-btn button:hover{
+        color: rgb(113, 26, 195);
+      box-shadow: 0 5px 5px 4px rgba(0,0,0,.1);
+     transform: translateY(-3px);
+}
+
+
+section{
+  padding: .4rem;
+  color: #fff;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/*******************SECTION-1***********************/
+.section1 .sec-title{
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.section1 .sec-title h1{
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: #fff;
+  margin: 4rem 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.section1 .sec-title span{
+  font-size: 2.1rem;
+}
+
+
+.color1{
+  color: #d22a34;
+}
+
+.color2{
+  color: #b4d421;
+}
+
+.color3{
+  color: #0170bf;
+}
+
+.color4{
+  color: #f29412;
+}
+
+.carousel-inner{
+  border-radius: .75rem;
+}
+
+.embed-responsive{
+  height: 100%;
+  border-radius: .75rem;
+}
+
+.top-btns{
+  text-align: -webkit-center;
+}
+.info-box{
+  width: 80%;
+  text-align: center;
+}
+.info-box h2{
+  font-weight: 500;
+}
+.amnt{
+  background-color: rgba(255,255,255,.1);
+    padding: .6rem;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    border-radius: .75rem;
+}
+
+.info-box button{
+  color: #fff;
+    background-color: darkcyan;
+    width: 100%;
+    padding: .6rem;
+    margin: .8rem 0;
+    border-radius: .75rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: all .3s ease-in-out;
+    
+}
+
+.info-box button:hover{
+      background-color: #fff;
+      color: darkcyan;
+      box-shadow: 0 5px 5px 4px rgba(0,0,0,.1);
+}
+
+
+/**************SECTION-2**************/
+.box{
+  background-color: rgba(255,255,255,.1);
+  padding: 2rem;
+  border-radius: .75rem;
+  width: 80%;
+  margin: 1rem 2.6rem;
+}
+
+.box h2{
+  font-size: 24px;
+}
+
+.box .btnContainer{
+  width: 80%;
+  margin: 0 auto;
+
+}
+
+.btnContainer button{
+  width: 100px;
+  background: linear-gradient(
+    45deg
+    , #046bb8, #19357c);
+  transition: all .3s ease-in-out;
+}
+
+.btnContainer button:hover{
+  transform: translateY(-3px);
+}
+
+.join-now h3, .reward-info h3{
+    font-size: 22px;
+    margin-top: 1rem;
+}
+
+.join-now span{
+  font-size: 14px;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.reward-info ul{
+  width: 55%;
+  margin: 0 auto;
+  padding-inline-start: 0px;
+}
+
+.reward-info ul li{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 500;
 }
 
-.App-link {
-  color: #61dafb;
+.copybtn{
+  width: 100px;
+  background: linear-gradient(
+    45deg
+    , #046bb8, #19357c);
+    transition: all .3s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.copybtn:hover{
+  transform: translateY(-3px);
+}
+
+/***************WITHDRAWAL OPTIONS**************/
+.w-options{
+  margin: 1rem 0;
+}
+
+.w-option {
+  background-color: #fff;
+  border-radius: .3rem;
+  padding: 0.75rem;
+  max-width: 27%;
+  margin: 0 auto 1rem auto
+}
+
+.w-option .content {
+  padding: .5rem;
+ 
+}
+
+.w-option .content button{
+  width: 100%;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: blueviolet;
+  color: #fff;
+
+}
+.w-option p {
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: inherit;
+  margin-bottom: 0rem;
+  margin: .4rem;
+}
+
+/*********************SECTION-3***************/
+.section3 .info{
+  background-color: rgba(255,255,255,.2);
+  height: 400px;
+  padding: .76rem;
+  border-radius: .75rem;
+}
+
+
+/*****************SECTION-4*******************/
+.section4 ul.wwh{
+      display: flex;
+      justify-content: center;
+      align-items:center;
+      flex-wrap: wrap;
+      padding-inline-start: 0px;
+      margin-bottom: 4rem;
+}
+
+.section4 ul.wwh li{
+  width: 150px;
+  height: 100px;
+  padding: 1rem;
+}
+
+.section4 ul.wwh li:nth-child(odd){
+    background-color: rgba(255,255,255,.1);
+}
+
+.section4 ul.wwh li:nth-child(even) {
+    background-color: rgba(255,255,255,.2);
+}
+
+.section4 .airdrop{
+  background-color: rgba(255,255,255,.1);
+  text-align: left;
+  padding: 1rem 1rem 1rem 4rem;
+}
+
+
+.airdrop ul{
+  list-style-type: disc;
+  padding-inline-start: 0px;
+}
+
+.airdrop ul li{
+  font-size: 17px;
+}
+
+/****************FOOTER*************/
+.copyright-text {
+  margin: 0;
+  line-height: 70px;
+}
+
+.footer-links li a{
+  color: #fff;
+  transition: all .2s ease;
+}
+
+.footer-links li a:hover{
+  color: #958ab4;
 }
