@@ -7,7 +7,9 @@ ul{
   background-repeat: no-repeat;
   background-size: cover;
 } */
-
+html {
+  scroll-behavior: smooth;
+}
 
 
 hr{
@@ -62,6 +64,18 @@ header nav .navbar-brand img, .logo img{
      transform: translateY(-3px);
 }
 
+.dropdown-menu{
+  background-color: #17a2b8 !important;
+}
+
+.dropdown-item{
+  margin: 0 !important;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #1695a8 !important;
+}
 
 section{
   padding: .4rem;
@@ -257,10 +271,22 @@ section{
 
 /*********************SECTION-3***************/
 .section3 .info{
-  background-color: rgba(255,255,255,.2);
-  height: 400px;
+  background-color: rgba(0,0,0,.1) ;
   padding: .76rem;
   border-radius: .75rem;
+}
+
+.info h3{
+  margin: .6rem;
+}
+ul.info-list{
+  padding-inline-start: 0px;
+  margin: 0 2rem;
+}
+ul.info-list li{
+   display: flex;
+   justify-content: space-between;
+   margin: .75rem;
 }
 
 
@@ -304,6 +330,67 @@ section{
   font-size: 17px;
 }
 
+/***************FAQ*****************/
+
+.card{
+  background-color: rgba(0,0,0,.1) ;
+    border: 1px solid rgba(255,255,255,.125);
+    margin-bottom: .4em;
+}
+
+.card-header{
+  padding: 0rem !important;
+}
+
+.btn-link{
+  padding: .75rem 1rem;
+}
+
+.accordion>.card:not(:last-of-type) {
+  border-bottom: 1px solid rgba(255,255,255,.125);
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius:.25rem;
+}
+.accordion>.card:not(:first-of-type) {
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+
+.btn:focus{
+  box-shadow: none;
+}
+
+.btn-link{
+  color: #fff;
+}
+
+
+.card-body{
+  color: #b0c5d8;
+  text-align: justify;
+}
+
+.btn-link:hover, .btn-link:focus{
+  text-decoration: none;
+  color: #fff;
+}
+
+button.btn.btn-link[aria-expanded="false"]:after{
+  content: "\25BD";
+  color: #b0c5d8;
+  float: right;
+  font-size: 14px;
+}
+button.btn.btn-link[aria-expanded="true"]:after {
+  content: "\25B3";
+  color: #b0c5d8;
+  font-size: 14px;
+  float: right;
+}
+
+ul.fqa6-list{
+  list-style-type: disc;
+}
 /****************FOOTER*************/
 .copyright-text {
   margin: 0;

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Slide from './../../images/slide.jpg';
+import Slide1 from './../../images/slide-1.png';
+import Slide2 from './../../images/slide-2.png';
+import Slide3 from './../../images/slide-3.png';
 class Section1 extends Component{
     render(){
         return(
@@ -35,9 +37,9 @@ class Section1 extends Component{
               <div className="carousel-item active">
                 <a href="#slide1">
                   <img
-                    src={Slide}
+                    src={Slide1}
                     className="d-block w-100"
-                    alt="..."
+                    alt="Slide 1"
                   />
                 </a>
               </div>
@@ -45,9 +47,9 @@ class Section1 extends Component{
               <div className="carousel-item">
                 <a href="#slide2">
                   <img
-                  src={Slide}
+                  src={Slide2}
                     className="d-block w-100"
-                    alt="..."
+                    alt="Slide 2"
                   />
                 </a>
               </div>
@@ -55,9 +57,9 @@ class Section1 extends Component{
               <div className="carousel-item">
                 <a href="#slide3">
                   <img
-                  src={Slide}
+                  src={Slide3}
                     className="d-block w-100"
-                    alt="..."
+                    alt="Slide 3"
                   />
                 </a>
               </div>

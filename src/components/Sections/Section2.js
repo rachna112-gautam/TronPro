@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 
 class Section2 extends Component{
+    state = {
+        inputVal : 0
+    }
     render(){
+        
         return(
+           
             <section>
                 <div className="container">
                 <hr/>
@@ -14,7 +19,7 @@ class Section2 extends Component{
                                    </div>
                                    <div className="join-now">
                                     <h3>Join Now</h3>
-                                    <input type="text" className="form-control w-75 text-center m-auto mb-2" placeholder="--amount--"></input>
+                                    <input type="text" className="form-control w-75 text-center m-auto mb-2" placeholder="--amount--" value={this.state.inputVal}></input>
                                     <span>Min 100 TRX</span>
                                     <div className="btnContainer">
                                        <button type="button" className="btn btn-primary m-1" >100 TRX</button>

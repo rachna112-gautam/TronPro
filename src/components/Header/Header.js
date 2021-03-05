@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Logo from './../../images/logo.png';
+import pdf from './../../images/PDF TRONS.PRO.pdf';
 class Header extends Component{
     render(){
         return(
             <header>
             <div classname="main-nav">
-            <div className="container px-0">
+            <div className="container-fluid px-0">
             <nav className="navbar navbar-expand-lg navbar-dark">
               <a className="navbar-brand" href="#home">
                 <img
@@ -30,9 +31,9 @@ class Header extends Component{
               <div className="collapse navbar-collapse main-nav-links"  id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                  
-                  <li className="nav-item ">
+                  <li className="nav-item dropdown">
                     <a
-                      className="nav-link dropdown"
+                      className="nav-link "
                       href="#pdf"
                       id="navbarDropdown"
                       role="button"
@@ -45,20 +46,13 @@ class Header extends Component{
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a
                         className="dropdown-item"
-                        href="https://tronflow.net/tronflowes.pdf"
+                        href={pdf}
                         target="_blank"
                         rel="noreferrer"
                       >
-                        SPANISH
+                       ENGLISH
                       </a>
-                      <a
-                        className="dropdown-item"
-                        href="https://tronflow.net/tronflow.pdf"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        ENGLISH
-                      </a>
+                     
                     </div>
                   </li>
                   
@@ -78,7 +72,7 @@ class Header extends Component{
                   </a>
                 </li>
                
-                  <li className="nav-item dropdown">
+                  <li className="nav-item">
                     <a
                       className="nav-link "
                       href="#Telegram"
@@ -90,24 +84,7 @@ class Header extends Component{
                     >
                       Telegram
                     </a>
-                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a
-                        className="dropdown-item"
-                        href="https://t.me/tronflow_es"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        SPANISH
-                      </a>
-                      <a
-                        className="dropdown-item"
-                        href="https://t.me/tronflowofficial"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        ENGLISH
-                      </a>
-                    </div>
+               
                   </li>
                 
                 </ul>
