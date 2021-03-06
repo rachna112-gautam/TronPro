@@ -1,6 +1,11 @@
 ul{
   list-style-type: none;
 }
+
+small{
+  color: #000;
+  font-weight: 500;
+}
 /* .main{
   background: url('./images/270164.jpg');
   background-position: center;
@@ -163,7 +168,7 @@ section{
     border-radius: .75rem;
 }
 
-.info-box button{
+.info-box button, .info-box div.timer{
   color: #fff;
     background-color: darkcyan;
     width: 100%;

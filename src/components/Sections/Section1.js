@@ -11,7 +11,7 @@ const Section1 =  () =>{
   let interval = useRef();
 
   const startTimer = () => {
-    const countDownDate = new Date('March 7, 2021 00:00:00').getTime();
+    const countDownDate = new Date('March 8, 2021 00:00:00').getTime();
     interval = setInterval(()=>{
       const now = new Date().getTime();
       const distance = countDownDate - now;
@@ -148,7 +148,7 @@ const Section1 =  () =>{
                <div className="amnt">
                   1%
                </div>
-               <button className="btn">{timerHours} : {timerMin} : {timerSec}</button>
+               <div className="timer">{timerHours} : {timerMin} : {timerSec}</div>
              </div>
            </div>
            <div className="col-lg-4">

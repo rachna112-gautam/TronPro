@@ -69,14 +69,15 @@ const Section2 = () =>{
                             <div className="w-option">
                                   <div className="content">
                                   <button type="button" className="btn"> 100% Reinvest</button>
-                                   
+                                  <small>Min amount should be 100 TRX</small>
                                   </div>
+                                 
                                   <p>Get 20% Bonus</p>
                             </div>
                             <div className="w-option">
                                     <div className="content">
                                     <button type="button" className="btn">  50/50 Reinvest</button>
-                                   
+                                    <small>Min amount should be 200 TRX</small>
                                     </div>
                                     <p>50% Reinvest</p>
                             </div>
@@ -85,7 +86,9 @@ const Section2 = () =>{
                                     <button type="button" className="btn">
                                     Withdraw All
                                     </button>
+                                    <small>Min amount should be 100 TRX</small>
                                 </div>
+                                
                                 <p>Pay 20% Fee</p>
                             </div>
                            
