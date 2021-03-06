@@ -7,14 +7,14 @@ class Header extends Component{
             <header>
             <div classname="main-nav">
             <div className="container-fluid px-0">
-            <nav className="navbar navbar-expand-lg navbar-dark">
+            <nav className="navbar navbar-expand-lg navbar-dark container">
               <a className="navbar-brand" href="#home">
                 <img
                   src={Logo}
                   alt="Trons Pro"
                   className="d-inline-block align-top logo"
                 />
-               
+              <span className="site-title">Trons.Pro</span> 
               </a>
               <button
                 className="navbar-toggler"
@@ -29,7 +29,7 @@ class Header extends Component{
               </button>
       
               <div className="collapse navbar-collapse main-nav-links"  id="navbarSupportedContent">
-                <ul className="navbar-nav mr-auto">
+                <ul className="navbar-nav mr-auto ml-auto">
                  
                   <li className="nav-item dropdown">
                     <a
@@ -59,15 +59,14 @@ class Header extends Component{
                   <li className="nav-item">
                     <a
                       className="nav-link"
-                      href="https://tronscan.org/#/contract/TFrBVjdpsuWQUMtjFpMxhUKg2q3oa6rgGv"
-                      target="_blank"
-                      rel="noreferrer"
+                      href="#contract"
+                     
                     >
                       Contract
                     </a>
                   </li>
                   <li className="nav-item">
-                  <a className="nav-link" href="#user-sec">
+                  <a className="nav-link" href="#faqs">
                    FAQ
                   </a>
                 </li>

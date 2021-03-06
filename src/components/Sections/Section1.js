@@ -1,10 +1,46 @@
-import React, { Component } from 'react';
+import React, {  useEffect, useState, useRef} from 'react';
 import Slide1 from './../../images/slide-1.png';
 import Slide2 from './../../images/slide-2.png';
 import Slide3 from './../../images/slide-3.png';
-class Section1 extends Component{
-    render(){
-        return(
+const Section1 =  () =>{
+  // const [timerDays, setTimerDays] = useState('00');
+  const [timerHours, setTimerHours] = useState('00');
+  const [timerMin, setTimerMin] = useState('00');
+  const [timerSec, setTimerSec] = useState('00');
+
+  let interval = useRef();
+
+  const startTimer = () => {
+    const countDownDate = new Date('March 7, 2021 00:00:00').getTime();
+    interval = setInterval(()=>{
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+      // const days = Math.floor(distance / (1000*60*60*24));
+      const hours = Math.floor((distance % (1000*60*60*24) / (1000*60*60)));
+      const min = Math.floor((distance % (1000*60*60)/(1000*60)));
+      const sec = Math.floor((distance% (1000*60)) / 1000);
+
+      if(distance < 0){
+        //stop timer
+        clearInterval(interval.current)
+      }
+      else{
+        //update timer
+        // setTimerDays(days);
+        setTimerHours(hours);
+        setTimerMin(min);
+        setTimerSec(sec);
+      }
+    }, 1000);
+  }
+
+  //componentDidMount
+  useEffect(() => {
+    startTimer();
+  
+  })
+        return (
+         
            <section>
            <div className="section1 container">
            <div className="sec-title mb-4">
@@ -112,7 +148,7 @@ class Section1 extends Component{
                <div className="amnt">
                   1%
                </div>
-               <button className="btn">Reset Time [00.00.00]</button>
+               <button className="btn">{timerHours} : {timerMin} : {timerSec}</button>
              </div>
            </div>
            <div className="col-lg-4">
@@ -128,7 +164,7 @@ class Section1 extends Component{
            </div>
            </section>
         )
-    }
+   
 }
 
 export default Section1;

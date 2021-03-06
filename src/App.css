@@ -26,7 +26,11 @@ header nav .navbar-brand, .logo{
   width: 200px;
   height: 100px;
 }
-
+.site-title{
+  background: -webkit-linear-gradient(#0d6efd, #f0f);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
 
 header nav .navbar-brand img, .logo img{
   width: 100%;
@@ -34,6 +38,16 @@ header nav .navbar-brand img, .logo img{
   object-fit: contain;
 }
 
+.navbar-brand{
+  display: flex;
+  align-items: center;
+}
+
+
+.navbar-brand span{
+  font-size: 30px;
+  font-weight: 600;
+}
 .main-nav-links {
   justify-content: space-around;
 }
@@ -134,12 +148,14 @@ section{
 .info-box{
   width: 80%;
   text-align: center;
+  padding: 1rem;
 }
 .info-box h2{
+  font-size: 1.4rem !important;
   font-weight: 500;
 }
 .amnt{
-  background-color: rgba(255,255,255,.1);
+  background-color: rgba(0,0,0,.1);
     padding: .6rem;
     text-align: center;
     font-size: 24px;
@@ -154,8 +170,9 @@ section{
     padding: .6rem;
     margin: .8rem 0;
     border-radius: .75rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
+    border: 4px solid darkcyan;
     transition: all .3s ease-in-out;
     
 }
@@ -180,12 +197,10 @@ section{
   font-size: 24px;
 }
 
-.box .btnContainer{
+.join-now{
   width: 80%;
   margin: 0 auto;
-
 }
-
 .btnContainer button{
   width: 100px;
   background: linear-gradient(
@@ -203,14 +218,18 @@ section{
     margin-top: 1rem;
 }
 
-.join-now span{
+.join-now .minanmt{
   font-size: 14px;
   display: inline-block;
   margin-top: 1rem;
 }
 
+.reward-info{
+  margin-top: 4rem;
+}
+
 .reward-info ul{
-  width: 55%;
+  width: 76%;
   margin: 0 auto;
   padding-inline-start: 0px;
 }
@@ -234,16 +253,52 @@ section{
   transform: translateY(-3px);
 }
 
+
+.rdbtn{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.rdbtn button{
+  width: 100%;
+  font-size: 1.2rem;
+  color: #fff;
+  transition: all .3s ease-in-out;
+}
+
+.rdbtn .reset{
+  background-color: blueviolet;
+}
+
+.rdbtn .deposit{
+  background-color: #f49411;
+}
+.rdbtn button:hover{
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.input-group-text{
+    background-color: #229ee2;
+    color: #fff;
+    font-weight: 600;
+}
+
 /***************WITHDRAWAL OPTIONS**************/
 .w-options{
-  margin: 1rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .w-option {
   background-color: #fff;
   border-radius: .3rem;
   padding: 0.75rem;
-  max-width: 27%;
+  width: 300px;
   margin: 0 auto 1rem auto
 }
 
@@ -258,7 +313,12 @@ section{
   font-weight: 600;
   background-color: blueviolet;
   color: #fff;
+  transition: all .3s ease-in-out;
 
+}
+
+.w-option .content button:hover{
+  transform: translateY(-3px);
 }
 .w-option p {
   color: #000;
@@ -267,6 +327,19 @@ section{
   font-family: inherit;
   margin-bottom: 0rem;
   margin: .4rem;
+}
+
+@media(max-width: 415px){
+  .join-now {
+    width: 98%;
+}
+}
+
+@media(max-width: 360px){
+  .btnContainer button.btn.btn-primary.m-1 {
+    font-size: 12px;
+    width: 94px;
+}
 }
 
 /*********************SECTION-3***************/
@@ -281,7 +354,7 @@ section{
 }
 ul.info-list{
   padding-inline-start: 0px;
-  margin: 0 2rem;
+  margin: 0 1rem;
 }
 ul.info-list li{
    display: flex;
@@ -392,9 +465,11 @@ ul.fqa6-list{
   list-style-type: disc;
 }
 /****************FOOTER*************/
+.logo{
+  margin: 0 auto;
+}
 .copyright-text {
   margin: 0;
-  line-height: 70px;
 }
 
 .footer-links li a{
