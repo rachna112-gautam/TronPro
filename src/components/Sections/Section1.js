@@ -48,7 +48,7 @@ const Section1 =  () =>{
              <span className="color3">5X</span> your investment with <span className="color4">XPRO</span> token airdrop</h1>
            </div>
            <div className="row mb-5">
-            <div className="col-lg-6 mb-2">
+            <div className="col-lg-6 mb-2 " >
             <div
             id="carouselExampleIndicators"
             className="carousel slide"

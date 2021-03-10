@@ -1,0 +1,5 @@
+export const ACCOUNT_UPDATE = "ACCOUNT_UPDATE";
+
+export const CONTRACT_LOADED = "CONTRACT_LOADED";
+
+export const ON_MY_DATA_LOADED = "ON_MY_DATA_LOADED";

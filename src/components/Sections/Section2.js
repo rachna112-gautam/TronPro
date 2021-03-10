@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Section2 = () =>{
    
+
+  
+
+
     const [joinValue, setJoinValue] = useState(0);
     const joinHandle = (trx) => {
                setJoinValue(joinValue + trx);
@@ -15,7 +19,7 @@ const Section2 = () =>{
                 <div className="container">
                 <hr/>
                        <div className="row justify-content-center">
-                           <div className="col-lg-5 box">
+                           <div className="col-lg-5 box" data-aos="fade-right">
                                    <h2>Your Wallet Balance</h2>
                                    <div className="amnt w-75 text-center m-auto">
                                    --amount--
@@ -44,7 +48,7 @@ const Section2 = () =>{
                                     </div>
                                 </div>
                            </div>
-                            <div className="col-lg-5 box">
+                            <div className="col-lg-5 box" data-aos="fade-left">
                             <h2>Your Referral Link</h2>
                             <div className="amnt w-75 text-center m-auto">
                                 referral link
@@ -66,7 +70,7 @@ const Section2 = () =>{
                           </div>
                        <div className=" w-options">
                        
-                            <div className="w-option">
+                            <div className="w-option" data-aos="zoom-in-up">
                                   <div className="content">
                                   <button type="button" className="btn"> 100% Reinvest</button>
                                   <small>Min amount should be 100 TRX</small>
@@ -74,14 +78,14 @@ const Section2 = () =>{
                                  
                                   <p>Get 20% Bonus</p>
                             </div>
-                            <div className="w-option">
+                            <div className="w-option" data-aos="zoom-in-up">
                                     <div className="content">
                                     <button type="button" className="btn">  50/50 Reinvest</button>
                                     <small>Min amount should be 200 TRX</small>
                                     </div>
                                     <p>50% Reinvest</p>
                             </div>
-                            <div className=" w-option">
+                            <div className=" w-option" data-aos="zoom-in-up">
                                     <div className="content">
                                     <button type="button" className="btn">
                                     Withdraw All

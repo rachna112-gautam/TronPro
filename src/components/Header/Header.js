@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Logo from './../../images/logo.png';
 import pdf from './../../images/PDF TRONS.PRO.pdf';
-class Header extends Component{
-    render(){
+const Header = (props) => {
+
         return(
             <header>
             <div classname="main-nav">
@@ -87,10 +87,9 @@ class Header extends Component{
                   </li>
                 
                 </ul>
-                <div className="connect-btn">
-                  <button id="address" className="btn">
-                    Connect your wallet
-                  </button>
+                <div className="wallet text-center">
+                   <span className="ywa-title">Your Wallet Address</span>
+                <span className="wallet-address"><a href="#address" >{props.address}</a></span>
                 </div>
               </div>
             </nav>
@@ -99,6 +98,6 @@ class Header extends Component{
             </header>
         )
     }
-}
+
 
 export default Header;

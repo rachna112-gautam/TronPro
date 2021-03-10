@@ -17,7 +17,7 @@ class Section4 extends Component{
                     </ul>
                     <div className="row">
                     <div className="col-lg-6">
-                      <h3>Huge XPRO Token Airdrop</h3>
+                      <h3> Huge XPRO Token Airdrop</h3>
                       <div className="airdrop">
                       <ul>
                       <li>Maximum supply 30000 XPRO only</li>
@@ -38,7 +38,7 @@ class Section4 extends Component{
                      
                     </div>
                     <div className="col-lg-6">
-                    <h3>Daily ROI Calculation</h3>
+                    <h3 className="airdrop-heading">Daily ROI Calculation</h3>
                     <div className="airdrop">
                     <ul>
                     <li>6% Over 50 Million TRX in Contract Balance</li>

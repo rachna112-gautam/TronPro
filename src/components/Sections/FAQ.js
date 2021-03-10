@@ -9,7 +9,7 @@ class FAQ extends Component{
                 <h3>Frequently Asked Questions</h3>
                 <div className="accordion row  mt-4" id="mainAccordion">
                 <div className="col-lg-6">
-                <div className="card">
+                <div className="card" data-aos="flip-up" >
                   <div className="card-header" id="headingOne">
                     <h2 className="mb-0">
                       <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -25,7 +25,7 @@ class FAQ extends Component{
                     </div>
                   </div>
                 </div>
-                <div className="card">
+                <div className="card" data-aos="flip-up">
                   <div className="card-header" id="headingTwo">
                     <h2 className="mb-0">
                       <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -48,7 +48,7 @@ class FAQ extends Component{
                     </div>
                   </div>
                 </div>
-                <div className="card">
+                <div className="card" data-aos="flip-up" >
                   <div className="card-header" id="headingThree">
                     <h2 className="mb-0">
                       <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -63,7 +63,7 @@ class FAQ extends Component{
                     </div>
                   </div>
                 </div>
-                <div className="card">
+                <div className="card" data-aos="flip-up">
                 <div className="card-header" id="headingFour">
                   <h2 className="mb-0">
                     <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -79,7 +79,7 @@ class FAQ extends Component{
                   </div>
                 </div>
               </div>
-              <div className="card">
+              <div className="card" data-aos="flip-up">
               <div className="card-header" id="headingFive">
                 <h2 className="mb-0">
                   <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -97,7 +97,7 @@ class FAQ extends Component{
                 </div>
               </div>
             </div>
-            <div className="card">
+            <div className="card" data-aos="flip-up">
             <div className="card-header" id="headingSix">
               <h2 className="mb-0">
                 <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -122,7 +122,7 @@ class FAQ extends Component{
           </div>
           </div>
           <div className="col-lg-6">
-          <div className="card">
+          <div className="card" data-aos="flip-up">
             <div className="card-header" id="headingSeven">
               <h2 className="mb-0">
                 <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
@@ -152,7 +152,7 @@ class FAQ extends Component{
               </div>
             </div>
           </div>
-          <div className="card">
+          <div className="card" data-aos="flip-up">
             <div className="card-header" id="headingEight">
               <h2 className="mb-0">
                 <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
@@ -166,7 +166,7 @@ class FAQ extends Component{
               </div>
             </div>
           </div>
-          <div className="card">
+          <div className="card" data-aos="flip-up">
             <div className="card-header" id="headingNine">
               <h2 className="mb-0">
                 <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
@@ -184,7 +184,7 @@ class FAQ extends Component{
               </div>
             </div>
           </div>
-          <div className="card">
+          <div className="card" data-aos="flip-up">
           <div className="card-header" id="heading10">
             <h2 className="mb-0">
               <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
@@ -205,7 +205,7 @@ class FAQ extends Component{
             </div>
           </div>
         </div>
-          <div className="card">
+          <div className="card" data-aos="flip-up">
             <div className="card-header" id="heading11">
               <h2 className="mb-0">
                 <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
@@ -219,7 +219,7 @@ class FAQ extends Component{
               </div>
             </div>
           </div>
-          <div className="card">
+          <div className="card" data-aos="flip-up">
             <div className="card-header" id="heading12">
               <h2 className="mb-0">
                 <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse12" aria-expanded="false" aria-controls="collapse12">

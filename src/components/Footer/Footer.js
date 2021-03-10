@@ -13,7 +13,7 @@ const Footer = () => {
         </div>
         <div class="col-md-4 align-self-center">
           <p class="text-white copyright-text text-center">
-            Copyright ©2021 Tron Pro, All Rights Reserved.
+            Copyright ©2021 Trons.Pro, All Rights Reserved.
           </p>
         </div>
         <div class="col-md-4 align-self-center">

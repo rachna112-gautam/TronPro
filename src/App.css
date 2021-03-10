@@ -485,3 +485,37 @@ ul.fqa6-list{
 .footer-links li a:hover{
   color: #958ab4;
 }
+
+
+@media(max-width: 360px){
+  .airdrop-heading{
+    margin-top: 2rem;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
+}
+
+
+.wallet{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.ywa-title{
+  font-size: 14px;
+  color: #fff;
+}
+
+.wallet-address a{
+  font-size: 16px;
+  color: rgb(67, 127, 195);
+  transition: color .1s ease;
+}
+
+
+.wallet-address a:hover{
+  color: rgba(67, 127, 195, .7);
+  text-decoration: none;
+}

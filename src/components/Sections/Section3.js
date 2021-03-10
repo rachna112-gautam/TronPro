@@ -7,7 +7,9 @@ class Section3 extends Component{
            <div className="container section3">
            <hr/>
            <div className="row">
-             <div className="col-lg-6 mt-3 mb-3">
+             <div className="col-lg-6 mt-3 mb-3" data-aos="fade-right"
+             data-aos-offset="200"
+             data-aos-easing="ease-in-sine">
              <div className="info">
              <h3>Smart Contract Info </h3>
              <ul class="info-list">
@@ -22,7 +24,9 @@ class Section3 extends Component{
              <li></li></ul>
              </div>
              </div>
-             <div className="col-lg-6 mt-3 mb-3">
+             <div className="col-lg-6 mt-3 mb-3" data-aos="fade-left"
+             data-aos-offset="200"
+             data-aos-easing="ease-in-sine">
              <div className="info">
              <h3>Personal Statistic </h3>
              <ul className="info-list">
