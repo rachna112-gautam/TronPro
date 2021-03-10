@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Logo from './../../images/logo.png';
 import pdf from './../../images/PDF TRONS.PRO.pdf';
 const Header = (props) => {

@@ -13,7 +13,7 @@ import 'aos/dist/aos.css'
 import AOS from 'aos';
 
 const App = (props) => {
-   console.log('props-->', props.account);
+ const address = props.account.address;
  useEffect(() => {
   AOS.init({
     duration : 2000
@@ -26,7 +26,7 @@ const App = (props) => {
     return(
        <div className="main">
        <BlockchainProvider/>
-       <Header address={props.account}/>
+       <Header address={address}/>
        <Section1 />
        <Section2 />
        <Section3 />
@@ -40,7 +40,7 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
   return{
-    account: state.account.address
+    account: state.account
   }
 }
 
