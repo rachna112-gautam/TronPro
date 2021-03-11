@@ -6,10 +6,6 @@ export function accountUpdate(payload) {
     return { type: ACCOUNT_UPDATE, payload }
   };
 
-  
-
-
-
 export function onContractLoaded(payload) {
   return { type: CONTRACT_LOADED, payload }
 };
