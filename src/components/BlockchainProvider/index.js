@@ -11,7 +11,8 @@ const BlockchainProvider = (props) => {
     const [contract, setContract] = useState();
     const [functions, setFunctions] = useState([])
     const [myData, setMyData] = useState();
-
+    const [contractData, setContractData] = useState();
+    const [personalData, setPersonalData] = useState();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -42,8 +43,6 @@ const BlockchainProvider = (props) => {
         }))
     }, [myTronBal])
 
-
-
     const loadContract = async (_tronWeb, myWallet) => {
 
         let _contract = await _tronWeb
@@ -51,14 +50,14 @@ const BlockchainProvider = (props) => {
             .at(Config.CONTRACT_ADDRESS)
 
 
-        setContract(_contract)
+         setContract(_contract)
 
         props.dispatch(onContractLoaded(_contract))
 
         console.log("contract",_contract);
 
-        initContractData();
-        personalData();
+        await initContractData();
+        await initPersonalData();
 
         setMyData (_contract)
 
@@ -67,8 +66,8 @@ const BlockchainProvider = (props) => {
 
 
     const loadData = async (_tronWeb, myWallet) => {
-        fetchMyTRXBal(_tronWeb)
-        loadContract(_tronWeb, myWallet)
+        await fetchMyTRXBal(_tronWeb)
+        await loadContract(_tronWeb, myWallet)
     }
 
 
@@ -84,29 +83,58 @@ const BlockchainProvider = (props) => {
         }
 
         console.log("baall", bal)
-        setMyTronBal(bal)
+         setMyTronBal(bal)
     }
 
     const initContractData = async () => {
-        let contractAddress = "0x";
         let contractBalance = 0;
         let todaysROI = 0;
         let totalInvestors = 0;
-        let walletBalance = 0;
         let totalTRXDeposit = 0;
         let totalAmountWithdrawn = 0;
+        if(contract){
+            contractBalance = beautifyNumber((await contract.methods.getContractBalance().call()).toNumber(),true);
+            todaysROI = (await contract.methods.getPercent().call()).toNumber();
+            totalInvestors = (await contract.methods.totalUsers().call()).toNumber();
+            totalTRXDeposit = beautifyNumber((await contract.methods.totalInvested().call()).toNumber(),true);
+            totalAmountWithdrawn = beautifyNumber((await contract.methods.totalWithdrawn().call()).toNumber(),true);
+        }
+        
+        setContractData({
+            contractBalance,
+            todaysROI,
+            totalInvestors,
+            totalTRXDeposit,
+            totalAmountWithdrawn
+        })
 
-        if(contract)
-        contractBalance = (await contract.methods.getContractBalance().call()).toNumber();
-        // todaysROI = (await contract.methods.)
-        console.log("balance",contractBalance);        
+        console.log("contractData",contractData);        
     }
 
-    const personalData = async ()=>{
-        let walletAddress = "0x";
-        let roi = 0;
+    const initPersonalData = async ()=>{
+        let roi = null;
         let referralIncome = 0;
         let withdrawnAmount = 0;
+        let referredBy = "0x";
+        let isExist = false;
+
+        if(contract){
+            let userInfo = (await contract.methods.users(window.tronWeb.defaultAddress.base58).call());
+            isExist = userInfo.isExist;
+            roi = beautifyNumber((await contract.methods.getROI(window.tronWeb.defaultAddress.base58).call()).toNumber(),true);
+            referredBy = tronWeb.address.fromHex(userInfo.referrer);
+            withdrawnAmount = beautifyNumber(userInfo.totalWithdrawn.toNumber(),true);
+            referralIncome = beautifyNumber(userInfo.refReward.toNumber(),true);
+        }
+
+        setPersonalData({
+            isExist,
+            roi,
+            referredBy,
+            withdrawnAmount,
+            referralIncome
+        })
+        console.log("personal data", personalData);
     }
 
 
