@@ -1,4 +1,4 @@
-import { ACCOUNT_UPDATE, CONTRACT_LOADED, ON_MY_DATA_LOADED } from "../constants/action-types";
+import { ACCOUNT_UPDATE, CONTRACT_LOADED, ON_PERSONAL_DATA_LOADED, ON_CONTRACT_DATA_LOADED } from "../constants/action-types";
 
 
 
@@ -23,11 +23,17 @@ function rootReducer(state = initialState, action) {
 
 
 
-    case ON_MY_DATA_LOADED:
-      console.log("accccccc",action)
+    case ON_PERSONAL_DATA_LOADED:
+      // console.log("accccccc",action)
       return Object.assign({}, state, {
-        myData: action.payload
+        personalData: action.payload
       });
+
+      case ON_CONTRACT_DATA_LOADED:
+      return Object.assign({}, state, {
+        contractData: action.payload
+      });
+
       default: {
           return state;
       }
