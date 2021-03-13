@@ -25,6 +25,8 @@ const App = (props) => {
 		AOS.refreshHard();
 	}, []);
 
+	
+
 	return (
 		<div className="main">
 			<BlockchainProvider />
@@ -34,6 +36,8 @@ const App = (props) => {
 			<Section3 />
 			<Section4 />
 			<FAQ />
+		this.getUserInfo(window.tronWeb.defaultAddress.base58);
+		this.fetchPlatformData();
 			<Footer />
 		</div>
 	);

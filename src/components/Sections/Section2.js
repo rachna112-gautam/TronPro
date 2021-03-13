@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Section2 = (props) => {
 	const [ joinValue, setJoinValue ] = useState(0);
+	const [copySuccess, setCopySuccess] = useState("");
+	const [refLink, setRefLink] = useState();
 	const joinHandle = (trx) => {
 		setJoinValue(joinValue + trx);
+		
 	};
 	const resetInput = () => {
 		setJoinValue(0);
@@ -18,6 +23,7 @@ const Section2 = (props) => {
 		await props.contract.methods
 			.invest(props.personalData.account)
 			.send({ from: props.personalData.account, callValue: joinValue*10**6 });
+			
 	};
 	// console.log("personal data",props.personalData)
 
@@ -28,6 +34,22 @@ const Section2 = (props) => {
 		}
 		await props.contract.methods.withdrawAll().send({from:props.personalData.walletAddress})
 	}
+	const getMyRefLink = (addr) => {
+		return "https://tronpro.com/?ref=" + addr;
+	  };
+	function copyToClipboard(e) {
+		var textField = document.createElement("textarea");
+		textField.innerText = refLink;
+		document.body.appendChild(textField);
+		textField.select();
+		document.execCommand("copy");
+		textField.remove();
+	
+		setCopySuccess("Copied!");
+		toast.success("Referral Link Copied");
+		console.log("refferal link copy");
+		
+	  }
 
 	const reInvestAll = async () => {
 		if(!props.contract){
@@ -111,10 +133,11 @@ const Section2 = (props) => {
 					</div>
 					<div className="col-lg-5 box" data-aos="fade-left">
 						<h2>Your Referral Link</h2>
-						<div className="amnt w-75 text-center m-auto">referral link</div>
-						<button type="button" className="btn btn-primary m-2 copybtn">
+						<div className="amnt w-75 text-center m-auto ref">localhost:3000</div>
+						<button type="button" className="btn btn-primary m-2 copybtn" onClick={copyToClipboard}>
 							Copy Link
 						</button>
+						
 						<div className="reward-info">
 							<h3>Referral Rewards</h3>
 							<ul>
@@ -180,6 +203,7 @@ const Section2 = (props) => {
 					<p>Tron Network fee 40-60 trx extra</p>
 				</div>
 			</div>
+			<ToastContainer />
 		</section>
 	);
 };
