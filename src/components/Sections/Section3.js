@@ -1,7 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 const Section3 = (props) => {
+	const [ account, setAccount ] = useState('0x');
+	const [ tronWeb, setTronWeb ] = useState();
+
+	useEffect(
+		() => {
+			const interval = setInterval(() => {
+				if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+					setAccount(window.tronWeb.defaultAddress.base58);
+					console.log('acc', window.tronWeb.defaultAddress.base58);
+					clearInterval(interval);
+					setTronWeb(window.tronWeb);
+				}
+			}, 500);
+		},
+		[window.tronWeb?window.tronWeb.defaultAddress.base58:[]]
+	);
+
 	return (
 		<section id="contract">
 			<div className="container section3">
@@ -101,18 +118,8 @@ const Section3 = (props) => {
 									<span>Your address</span>
 
 									<span>
-										<a
-											href={
-												props.personalData ? (
-													`https://shasta.tronscan.org/#/contract/${props.personalData
-														.account}`
-												) : (
-													'https://shasta.tronscan.org'
-												)
-											}
-											target="_blank"
-										>
-											{/* {props.personalData.account ? props.personalData.account.slice(0, 7) + '...' : '0x'} */}
+										<a href={`https://shasta.tronscan.org/#/contract/${account}`} target="_blank">
+											{account.slice(0, 7) + '...'}
 										</a>
 									</span>
 								</li>
@@ -127,12 +134,16 @@ const Section3 = (props) => {
 
 								<li>
 									<span>Total Invested Amount</span>
-									<span>{props.personalData ? props.personalData.userTotalInvestedAmount : 0} TRX</span>
+									<span>
+										{props.personalData ? props.personalData.userTotalInvestedAmount : 0} TRX
+									</span>
 								</li>
 
 								<li>
 									<span>Total ReInvested Amount</span>
-									<span>{props.personalData ? props.personalData.userTotalReInvestedAmount : 0} TRX</span>
+									<span>
+										{props.personalData ? props.personalData.userTotalReInvestedAmount : 0} TRX
+									</span>
 								</li>
 								<li>
 									<span>Daily income 1%</span>
@@ -140,11 +151,15 @@ const Section3 = (props) => {
 								</li>
 								<li>
 									<span>Reward Earned </span>
-									<span>{props.personalData ? props.personalData.reInvestRewardEarned : '0x'} TRX</span>
+									<span>
+										{props.personalData ? props.personalData.reInvestRewardEarned : '0x'} TRX
+									</span>
 								</li>
 								<li>
 									<span>Total ReInvested Amount</span>
-									<span>{props.personalData ? props.personalData.userTotalReInvestedAmount : 0} TRX</span>
+									<span>
+										{props.personalData ? props.personalData.userTotalReInvestedAmount : 0} TRX
+									</span>
 								</li>
 								<li>
 									<span>Income withdrawn to wallet</span>

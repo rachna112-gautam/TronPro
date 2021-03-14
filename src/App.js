@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Section1 from './components/Sections/Section1';
@@ -13,10 +13,7 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 
 const App = (props) => {
-	let address = 0;
-	if (props.account) {
-		address = props.account.address;
-	}
+	const [ address, setAddress ] = useState('loading...');
 	console.log('hhfhjf', props.contract);
 	useEffect(() => {
 		AOS.init({
@@ -24,6 +21,16 @@ const App = (props) => {
 		});
 		AOS.refreshHard();
 	}, []);
+
+	useEffect(
+		() => {
+			if (props.account) {
+				console.log('addrss--->', props.account.address);
+				setAddress(props.account.address);
+			}
+		},
+		[ props.account ]
+	);
 
 	return (
 		<div className="main">
