@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Section1 from './components/Sections/Section1';
@@ -13,17 +13,48 @@ import 'aos/dist/aos.css'
 import AOS from 'aos';
 
 const App = (props) => {
- const address = props.account.address;
+  const [address,setAddress]=useState("")
+
+
+// if(props.account.address){
+//    address=props.account.address
+// }else{
+//   address=0
+// }
+async function getAddress(){
+  let address1;
+  if(props.account.address){
+address1 = await props.account.address;
+  }
+  else{
+    address1="loading"
+  }
+   
+   setAddress(address1)
+  // return address;
+}
+
+
  useEffect(() => {
   AOS.init({
     duration : 2000
   });
   AOS.refreshHard();
+  getAddress();
  },[])
 
+ 
 
+
+ 
+
+
+//  console.log("address",props.account)
+
+     
     
     return(
+      
        <div className="main">
        <BlockchainProvider/>
        <Header address={address}/>
@@ -40,7 +71,8 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
   return{
-    account: state.account
+    account: state.account,
+    contract:state.contract
   }
 }
 
