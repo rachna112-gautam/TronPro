@@ -25,17 +25,21 @@ const Section3 = (props) => {
 													`https://shasta.tronscan.org/#/contract/${props.contractData
 														.contractAddress}`
 												) : (
-													'#'
+													'https://shasta.tronscan.org'
 												)
 											}
 											target="_blank"
 										>
-											{props.contractData ? props.contractData.contractAddress : '0x'}
+											{props.contractData ? (
+												props.contractData.contractAddress.slice(0, 7) + '...'
+											) : (
+												'0x'
+											)}
 										</a>
 									</span>
 								</li>
 								<li>
-									<span>Total TRX deposits all time</span>
+									<span>Total TRX deposited</span>
 									<span>{props.contractData ? props.contractData.totalTRXDeposit : 0} TRX</span>
 								</li>
 								<li>
@@ -43,8 +47,12 @@ const Section3 = (props) => {
 									<span>{props.contractData ? props.contractData.contractBalance : 0} TRX</span>
 								</li>
 								<li>
-									<span>Amount withdrawn by members</span>
+									<span>Total TRX withdrawn</span>
 									<span>{props.contractData ? props.contractData.totalAmountWithdrawn : 0} TRX</span>
+								</li>
+								<li>
+									<span>Total TRX ReInvested</span>
+									<span>{props.contractData ? props.contractData.totalTRXReInvested : 0} TRX</span>
 								</li>
 								<li>
 									<span>Referred by</span>
@@ -55,15 +63,25 @@ const Section3 = (props) => {
 													`https://shasta.tronscan.org/#/contract/${props.personalData
 														.account}`
 												) : (
-													'#'
+													'https://shasta.tronscan.org'
 												)
 											}
 											target="_blank"
 										>
-											{props.personalData ? props.personalData.referredBy : '0x'}
+											{props.personalData ? (
+												props.personalData.referredBy.slice(0, 7) + '...'
+											) : (
+												'0x'
+											)}
 										</a>
 									</span>
 								</li>
+								<li />
+								<li />
+								<li />
+								<li />
+								<li />
+								<li />
 								<li />
 								<li />
 								<li />
@@ -89,12 +107,12 @@ const Section3 = (props) => {
 													`https://shasta.tronscan.org/#/contract/${props.personalData
 														.account}`
 												) : (
-													'#'
+													'https://shasta.tronscan.org'
 												)
 											}
 											target="_blank"
 										>
-											{props.personalData ? props.personalData.account : '0x'}
+											{/* {props.personalData.account ? props.personalData.account.slice(0, 7) + '...' : '0x'} */}
 										</a>
 									</span>
 								</li>
@@ -103,18 +121,31 @@ const Section3 = (props) => {
 									<span>17:48:26</span>
 								</li>
 								<li>
-									<span>Active Investments</span>
+									<span>Active Amount</span>
 									<span>{props.personalData ? props.personalData.activeInvestments : 0} TRX</span>
+								</li>
+
+								<li>
+									<span>Total Invested Amount</span>
+									<span>{props.personalData ? props.personalData.userTotalInvestedAmount : 0} TRX</span>
+								</li>
+
+								<li>
+									<span>Total ReInvested Amount</span>
+									<span>{props.personalData ? props.personalData.userTotalReInvestedAmount : 0} TRX</span>
 								</li>
 								<li>
 									<span>Daily income 1%</span>
 									<span>{props.personalData ? props.personalData.roi : 0} TRX</span>
 								</li>
 								<li>
-									<span>Referral income</span>
-									<span>{props.personalData ? props.personalData.referralIncome : '0x'} TRX</span>
+									<span>Reward Earned </span>
+									<span>{props.personalData ? props.personalData.reInvestRewardEarned : '0x'} TRX</span>
 								</li>
-
+								<li>
+									<span>Total ReInvested Amount</span>
+									<span>{props.personalData ? props.personalData.userTotalReInvestedAmount : 0} TRX</span>
+								</li>
 								<li>
 									<span>Income withdrawn to wallet</span>
 									<span>{props.personalData ? props.personalData.withdrawnAmount : '0x'} TRX</span>

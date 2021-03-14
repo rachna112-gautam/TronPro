@@ -17,35 +17,33 @@ const Section2 = (props) => {
 		}
 		await props.contract.methods
 			.invest(props.personalData.account)
-			.send({ from: props.personalData.account, callValue: joinValue*10**6 });
+			.send({ from: props.personalData.account, callValue: joinValue * 10 ** 6 });
 	};
 	// console.log("personal data",props.personalData)
 
 	const withdrawAll = async () => {
-		if(!props.contract){
-			alert("contract not loaded")
-			return
+		if (!props.contract) {
+			alert('contract not loaded');
+			return;
 		}
-		await props.contract.methods.withdrawAll().send({from:props.personalData.walletAddress})
-	}
+		await props.contract.methods.withdrawAll().send({ from: props.personalData.walletAddress });
+	};
 
 	const reInvestAll = async () => {
-		if(!props.contract){
-			alert("contract not loaded")
-			return
+		if (!props.contract) {
+			alert('contract not loaded');
+			return;
 		}
-		await props.contract.methods.reinvestAll().send({from:props.personalData.walletAddress})
-
-	}
+		await props.contract.methods.reinvestAll().send({ from: props.personalData.walletAddress });
+	};
 
 	const withdrawReInvest = async () => {
-		if(!props.contract){
-			alert("contract not loaded")
-			return
+		if (!props.contract) {
+			alert('contract not loaded');
+			return;
 		}
-		await props.contract.methods.withdraw50Percent().send({from:props.personalData.walletAddress})
-
-	}
+		await props.contract.methods.withdraw50Percent().send({ from: props.personalData.walletAddress });
+	};
 
 	return (
 		<section>
@@ -101,9 +99,13 @@ const Section2 = (props) => {
 								<button type="button" className="btn reset m-1" onClick={() => resetInput()}>
 									Reset
 								</button>
-								<button type="button" className="btn deposit  m-1" onClick = {()=>{
-									deposit()
-								}}>
+								<button
+									type="button"
+									className="btn deposit  m-1"
+									onClick={() => {
+										deposit();
+									}}
+								>
 									Deposit
 								</button>
 							</div>
@@ -111,7 +113,9 @@ const Section2 = (props) => {
 					</div>
 					<div className="col-lg-5 box" data-aos="fade-left">
 						<h2>Your Referral Link</h2>
-						<div className="amnt w-75 text-center m-auto">referral link</div>
+						<div className="amnt w-75 text-center m-auto">
+							localhost:3000/{props.personalData.isExist ? props.personalData.account : ''}
+						</div>
 						<button type="button" className="btn btn-primary m-2 copybtn">
 							Copy Link
 						</button>
@@ -140,9 +144,13 @@ const Section2 = (props) => {
 				<div className=" w-options">
 					<div className="w-option" data-aos="zoom-in-up">
 						<div className="content">
-							<button type="button" className="btn" onClick={()=>{
-								reInvestAll()
-							}}>
+							<button
+								type="button"
+								className="btn"
+								onClick={() => {
+									reInvestAll();
+								}}
+							>
 								{' '}
 								100% Reinvest
 							</button>
@@ -153,21 +161,29 @@ const Section2 = (props) => {
 					</div>
 					<div className="w-option" data-aos="zoom-in-up">
 						<div className="content">
-							<button type="button" className="btn" onClick={()=>{
-								withdrawReInvest()
-							}}>
+							<button
+								type="button"
+								className="btn"
+								onClick={() => {
+									withdrawReInvest();
+								}}
+							>
 								{' '}
 								50/50 Reinvest
-							</button >
+							</button>
 							<small>Min amount should be 200 TRX</small>
 						</div>
 						<p>50% Reinvest</p>
 					</div>
 					<div className=" w-option" data-aos="zoom-in-up">
 						<div className="content">
-							<button type="button" className="btn" onClick={()=>{
-								withdrawAll()
-							}}>
+							<button
+								type="button"
+								className="btn"
+								onClick={() => {
+									withdrawAll();
+								}}
+							>
 								Withdraw All
 							</button>
 							<small>Min amount should be 100 TRX</small>

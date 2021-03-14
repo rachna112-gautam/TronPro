@@ -116,7 +116,19 @@ const Section1 = (props) => {
 						<div className="info-box">
 							<h2>Contract Balance</h2>
 							<div className="amnt">{props.contractData ? props.contractData.contractBalance : 0}</div>
-							<button className="btn">Check Contract</button>
+							<a
+								className="btn"
+								href={
+									props.contractData ? (
+										`https://shasta.tronscan.org/#/contract/${props.contractData.contractAddress}`
+									) : (
+										'https://shasta.tronscan.org'
+									)
+								}
+								target="_blank"
+							>
+								Check Contract
+							</a>
 						</div>
 					</div>
 					<div className="col-lg-4">
