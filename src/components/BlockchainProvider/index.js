@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, } from "react";
 import { connect } from 'react-redux';
-import { accountUpdate, onContractLoaded, onMyDataLoaded } from "../../redux/actions"
+import { accountUpdate, onContractLoaded, onPersonalDataLoaded , onContractDataLoaded} from "../../redux/actions"
 import Config from "../../Config"
 const BlockchainProvider = (props) => {
 
@@ -9,14 +9,10 @@ const BlockchainProvider = (props) => {
     const [myTronBal, setMyTronBal] = useState();
     const [tronWeb, setTronWeb] = useState();
     const [contract, setContract] = useState();
-
     const [functions, setFunctions] = useState([])
-
-
     const [myData, setMyData] = useState();
-
-
-
+    const [contractData, setContractData] = useState();
+    const [personalData, setPersonalData] = useState();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -33,9 +29,17 @@ const BlockchainProvider = (props) => {
 
 
     useEffect(() => {
+        
         props.dispatch(accountUpdate({
             address: account,
             myTronBal: myTronBal
+        }))
+    }, [account])
+
+    useEffect(() => {
+        initPersonalData()
+        props.dispatch(accountUpdate({
+           personalData: personalData
         }))
     }, [account])
 
@@ -47,7 +51,14 @@ const BlockchainProvider = (props) => {
         }))
     }, [myTronBal])
 
+    useEffect(()=>{
+        initContractData()
+        
+    },[contractData])
 
+    useEffect(()=>{
+        initPersonalData()
+    },[personalData])
 
     const loadContract = async (_tronWeb, myWallet) => {
 
@@ -56,23 +67,24 @@ const BlockchainProvider = (props) => {
             .at(Config.CONTRACT_ADDRESS)
 
 
-        setContract(_contract)
+         setContract(_contract)
 
         props.dispatch(onContractLoaded(_contract))
 
+        // console.log("contract",_contract);
 
+        await initContractData();
+        await initPersonalData();
 
-        initContractData(_contract, myWallet);
-
-
+        setMyData (_contract)
 
     }
 
 
 
     const loadData = async (_tronWeb, myWallet) => {
-        fetchMyTRXBal(_tronWeb)
-        loadContract(_tronWeb, myWallet)
+        await fetchMyTRXBal(_tronWeb)
+        await loadContract(_tronWeb, myWallet)
     }
 
 
@@ -81,115 +93,94 @@ const BlockchainProvider = (props) => {
             _tronWeb.defaultAddress.base58
         );
 
-
-
         if (bal.balance > 0) {
             bal = (bal.balance / 10 ** 6).toFixed(2)
         } else {
             bal = "00"
         }
 
-
-
-        console.log("baall", bal)
-
-
-        setMyTronBal(bal)
+        // console.log("baall", bal)
+         setMyTronBal(bal)
     }
 
+    const initContractData = async () => {
+        let contractBalance = 0;
+        let todaysROI = 0;
+        let totalInvestors = 0;
+        let totalTRXDeposit = 0;
+        let totalAmountWithdrawn = 0;
+        let contractAddress = "0x"
+        let totalTRXReInvested = 0;
+        if(contract){
+            contractBalance = beautifyNumber((await contract.methods.getContractBalance().call()).toNumber(),true);
+            todaysROI = (await contract.methods.getPercent().call()).toNumber();
+            totalInvestors = (await contract.methods.totalUsers().call()).toNumber();
+            totalTRXDeposit = beautifyNumber((await contract.methods.totalInvested().call()).toNumber(),true);
+            totalAmountWithdrawn = beautifyNumber((await contract.methods.totalWithdrawn().call()).toNumber(),true);
+            contractAddress = Config.CONTRACT_ADDRESS
+            totalTRXReInvested = beautifyNumber(await contract.methods.totalReinvest().call());
+            
+        }
+        
+        setContractData({
+            contractBalance,
+            todaysROI,
+            totalInvestors,
+            totalTRXDeposit,
+            totalTRXReInvested,
+            totalTRXReInvested,
+            totalAmountWithdrawn,
+            contractAddress
+        })
+        props.dispatch(onContractDataLoaded(contractData))
+        // console.log("contractData",contractData);        
+    }
 
+    const initPersonalData = async ()=>{
+        let roi = null;
+        let referralIncome = 0;
+        let withdrawnAmount = 0;
+        let referredBy = "0x";
+        let isExist = false;
+        let walletBalance = 0;
+        let activeInvestments = 0;
+        let userTotalInvestedAmount = 0;
+        let userTotalReInvestedAmount = 0;
+        let reInvestRewardEarned = 0;
 
+        if(contract){
+            let userInfo = (await contract.methods.users(window.tronWeb.defaultAddress.base58).call());
+            isExist = userInfo.isExist;
+            roi = beautifyNumber((await contract.methods.getROI(window.tronWeb.defaultAddress.base58).call()).toNumber(),true);
+            referredBy = tronWeb.address.fromHex(userInfo.referrer);
+            withdrawnAmount = beautifyNumber(userInfo.totalWithdrawn.toNumber(),true);
+            referralIncome = beautifyNumber(userInfo.refReward.toNumber(),true);
+            walletBalance = myTronBal;
+            activeInvestments = beautifyNumber(await contract.methods.getActiveDepositsSum(window.tronWeb.defaultAddress.base58).call());
+            userTotalInvestedAmount = beautifyNumber(userInfo.totalInvestedAmount)
+            userTotalReInvestedAmount = beautifyNumber(userInfo.totalReinvestedAmount)
+            reInvestRewardEarned = beautifyNumber(userInfo.reinvestRewardEarned);
+        }
 
-
-
-    const initContractData = async (_contract, myWallet) => {
-
-
-
-        let resp = await _contract.methods.getuserInfo(myWallet).call();
-        let referral = beautifyNumber(resp._refferals);
-        let totalmembers = resp._totalmembers.toNumber();
-        console.log("total ref",totalmembers);
-        let withdrawnAmount = beautifyNumber(resp._withdrawnAmount, true)
-        console.log("withrawbnn",withdrawnAmount)
-        let incomes = await _contract.methods.getEarnings(myWallet).call();
-        let rewardIncome = beautifyNumber(incomes._rewardIncome,true);
-        let levelIncome = beautifyNumber(incomes._refferalIncome,true);
-        console.log("level income",levelIncome)
-        console.log("reward income ---",rewardIncome);
-        let data = {
-            ...myData,
-            referral,
-            totalmembers,
+        setPersonalData({
+            isExist,
+            roi,
+            referredBy,
             withdrawnAmount,
-            levelIncome
-        }
+            referralIncome,
+            walletBalance,
+            account,
+            userTotalInvestedAmount,
+            userTotalReInvestedAmount,
+            reInvestRewardEarned,
+            activeInvestments
+        })
 
-
-        setMyData(data);
-        props.dispatch(onMyDataLoaded(data))
-
-
-
-        _usersFunction(_contract, myWallet)
-        // fetchPoolsData(_contract, myWallet)
+        props.dispatch(onPersonalDataLoaded(personalData))
+        // console.log("personal data", personalData);
     }
-
-
-
-
-    const _usersFunction = async (_contract, myWallet) => {
-
-        let resp = await _contract.methods.getWallets(myWallet).call();
-        let poolWallet = beautifyNumber(resp._poolWallet,true);
-        let withdrawWallet = beautifyNumber(resp._withdrawWallet, true);
-        let lockedWallet = beautifyNumber(resp._hold, true);
-        console.log("locked",lockedWallet);
-        // let ROIAmount = beautifyNumber(resp.ROIAmount, true)
-
-        let data = {
-            ...myData,
-            poolWallet,
-            withdrawWallet,
-            lockedWallet
-            // ROIAmount,
-        }
-
-
-        setMyData(data);
-        props.dispatch(onMyDataLoaded(data))
-
-    }
-
-
-
-    const fetchPoolsData = async (_contract, myWallet) => {
-
-
-
-        let poolsStatus=[];
-
-    
-        for(let i=1;i<10;i++){
-            let isActive = await _contract.methods.checkIfPoolActive(myWallet).call();
-            poolsStatus.push(isActive)
-        }
-        let data = {
-            ...myData,
-            poolsStatus
-        }
-
-
-        setMyData(data);
-        props.dispatch(onMyDataLoaded(data))
-
-    }
-
-
-
 
     const beautifyNumber = (input, isFixed) => {
-
         let num = input / 10 ** 6;
 
         if (isFixed) {
@@ -198,7 +189,6 @@ const BlockchainProvider = (props) => {
             return num
         }
     }
-
 
 
     return <></>
