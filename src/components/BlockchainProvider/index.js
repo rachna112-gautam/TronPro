@@ -18,12 +18,12 @@ const BlockchainProvider = (props) => {
         const interval = setInterval(() => {
             if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
                 console.log("fddf", window.tronWeb.defaultAddress.base58)
-                setAccount(window.tronWeb.defaultAddress.base58)
+                setAccount( window.tronWeb.defaultAddress.base58)
                 clearInterval(interval)
                 setTronWeb(window.tronWeb)
                 loadData(window.tronWeb, window.tronWeb.defaultAddress.base58)
             }
-        }, 500)
+        }, 5000)
     }, [])
 
 

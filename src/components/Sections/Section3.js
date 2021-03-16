@@ -16,7 +16,7 @@ const Section3 = (props) => {
 				}
 			}, 500);
 		},
-		[window.tronWeb?window.tronWeb.defaultAddress.base58:[]]
+		[ window.tronWeb ? window.tronWeb.defaultAddress.base58 : [] ]
 	);
 
 	return (
@@ -139,12 +139,6 @@ const Section3 = (props) => {
 									</span>
 								</li>
 
-								<li>
-									<span>Total ReInvested Amount</span>
-									<span>
-										{props.personalData ? props.personalData.userTotalReInvestedAmount : 0} TRX
-									</span>
-								</li>
 								<li>
 									<span>Daily income 1%</span>
 									<span>{props.personalData ? props.personalData.roi : 0} TRX</span>

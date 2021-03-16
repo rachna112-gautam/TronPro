@@ -33,17 +33,17 @@ const App = (props) => {
 	);
 
 	return (
-		<div className="main">
-			<BlockchainProvider />
-			<Header address={address} />
-			<Section1 />
-			<Section2 />
-			<Section3 />
-			<Section4 />
-			<FAQ />
-			<Footer />
-		</div>
-	);
+    <div className="main">
+      <BlockchainProvider />
+      <Header address={address} />
+      <Section1 />
+      <Section2 address={address} />
+      <Section3 />
+      <Section4 />
+      <FAQ />
+      <Footer />
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {

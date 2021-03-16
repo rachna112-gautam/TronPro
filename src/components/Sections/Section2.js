@@ -1,18 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Input } from 'reactstrap';
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 const Section2 = (props) => {
 	const [ joinValue, setJoinValue ] = useState(0);
-	const [copySuccess, setCopySuccess] = useState("");
-	const [refLink, setRefLink] = useState();
+	const [ copySuccess, setCopySuccess ] = useState('');
+	const [ refLink, setRefLink ] = useState();
+	const [ walletAddress, setWalletAddress ] = useState(false);
+	const [ ref, setRef ] = useState('TYPGbv47eFGBCDvjrPZNgXs3JfrqPMTWS9');
+
 	const joinHandle = (trx) => {
 		setJoinValue(joinValue + trx);
-		
 	};
 	const resetInput = () => {
 		setJoinValue(0);
+	};
+
+	useEffect(() => {
+		let url = window.location.href;
+		let params = new URL(url).searchParams;
+		localStorage.setItem('ref', params.get('ref'));
+		setRef(localStorage.getItem('ref'));
+	}, window.location.href);
+
+	useEffect(
+		() => {
+			if (props.account) {
+				setWalletAddress(props.account.address);
+				setRefLink(getMyRefLink(props.address));
+			}
+
+			console.log('pros.accout', props.address);
+		},
+		[ props.address ]
+	);
+
+	const getAccount = async () => {
+		return window.tronWeb.defaultAddress.base58;
 	};
 
 	const deposit = async () => {
@@ -20,10 +47,14 @@ const Section2 = (props) => {
 			alert('contract not loaded!');
 			return;
 		}
-		await props.contract.methods
-			.invest(props.personalData.account)
-			.send({ from: props.personalData.account, callValue: joinValue*10**6 });
-			
+
+		let url = window.location.href;
+		let params = new URL(url).searchParams;
+		let add = params.get('ref');
+		if (add == null) {
+			add = walletAddress;
+		}
+		await props.contract.methods.invest(add).send({ from: walletAddress, callValue: joinValue * 10 ** 6 });
 	};
 	// console.log("personal data",props.personalData)
 
@@ -32,24 +63,23 @@ const Section2 = (props) => {
 			alert('contract not loaded');
 			return;
 		}
-		await props.contract.methods.withdrawAll().send({from:props.personalData.walletAddress})
-	}
+		await props.contract.methods.withdrawAll().send({ from: props.personalData.walletAddress });
+	};
 	const getMyRefLink = (addr) => {
-		return "https://tronpro.com/?ref=" + addr;
-	  };
+		return 'https://tronpro.com/?ref=' + addr;
+	};
+
 	function copyToClipboard(e) {
-		var textField = document.createElement("textarea");
+		var textField = document.createElement('textarea');
 		textField.innerText = refLink;
 		document.body.appendChild(textField);
 		textField.select();
-		document.execCommand("copy");
+		document.execCommand('copy');
 		textField.remove();
-	
-		setCopySuccess("Copied!");
-		toast.success("Referral Link Copied");
-		console.log("refferal link copy");
-		
-	  }
+
+		setCopySuccess('Copied!');
+		toast.success('Referral Link Copied');
+	}
 
 	const reInvestAll = async () => {
 		if (!props.contract) {
@@ -135,11 +165,21 @@ const Section2 = (props) => {
 					</div>
 					<div className="col-lg-5 box" data-aos="fade-left">
 						<h2>Your Referral Link</h2>
-						<div className="amnt w-75 text-center m-auto ref">localhost:3000</div>
+						<Input
+							onChange={(t) => {
+								// setDepositAmount(t.target.value);
+							}}
+							type="text"
+							name="amount"
+							id="amount"
+							value={refLink}
+							className="ref-input"
+							placeholder="Enter Amount"
+						/>
 						<button type="button" className="btn btn-primary m-2 copybtn" onClick={copyToClipboard}>
 							Copy Link
 						</button>
-						
+
 						<div className="reward-info">
 							<h3>Referral Rewards</h3>
 							<ul>
@@ -225,7 +265,8 @@ const Section2 = (props) => {
 const mapStateToProps = (state) => {
 	return {
 		personalData: state.personalData,
-		contract: state.contract
+		contract: state.contract,
+		account: state.account
 	};
 };
 
