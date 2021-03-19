@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 import { connect } from 'react-redux';
 import Slide1 from './../../images/slide-1.png';
 import Slide2 from './../../images/slide-2.png';
@@ -7,40 +6,40 @@ import Slide3 from './../../images/slide-3.png';
 
 const Section1 = (props) => {
 	// const [timerDays, setTimerDays] = useState('00');
-	const [ timerHours, setTimerHours ] = useState('00');
-	const [ timerMin, setTimerMin ] = useState('00');
-	const [ timerSec, setTimerSec ] = useState('00');
+	// const [timerHours, setTimerHours] = useState('00');
+	// const [timerMin, setTimerMin] = useState('00');
+	// const [timerSec, setTimerSec] = useState('00');
 
 	// console.log('contract data', contractData);
-	let interval = useRef();
+	// let interval = useRef();
 
-	const startTimer = () => {
-		const countDownDate = new Date('March 8, 2021 00:00:00').getTime();
-		interval = setInterval(() => {
-			const now = new Date().getTime();
-			const distance = countDownDate - now;
-			// const days = Math.floor(distance / (1000*60*60*24));
-			const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			const min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-			const sec = Math.floor((distance % (1000 * 60)) / 1000);
+	// const startTimer = () => {
+	// 	const countDownDate = new Date('March 8, 2021 00:00:00').getTime();
+	// 	interval = setInterval(() => {
+	// 		const now = new Date().getTime();
+	// 		const distance = countDownDate - now;
+	// 		// const days = Math.floor(distance / (1000*60*60*24));
+	// 		const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	// 		const min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	// 		const sec = Math.floor((distance % (1000 * 60)) / 1000);
 
-			if (distance < 0) {
-				//stop timer
-				clearInterval(interval.current);
-			} else {
-				//update timer
-				// setTimerDays(days);
-				setTimerHours(hours);
-				setTimerMin(min);
-				setTimerSec(sec);
-			}
-		}, 1000);
-	};
+	// 		if (distance < 0) {
+	// 			//stop timer
+	// 			clearInterval(interval.current);
+	// 		} else {
+	// 			//update timer
+	// 			// setTimerDays(days);
+	// 			// setTimerHours(hours);
+	// 			// setTimerMin(min);
+	// 			// setTimerSec(sec);
+	// 		}
+	// 	}, 1000);
+	// };
 
 	//componentDidMount
-	useEffect(() => {
-		startTimer();
-	});
+	// useEffect(() => {
+	// 	startTimer();
+	// });
 
 	return (
 		<section>
@@ -49,7 +48,7 @@ const Section1 = (props) => {
 					<h1>
 						Earn <span className="color1">300%</span> Return Upto <span className="color2">6%</span> Daily
 						ROI<br />
-						<span className="color3">5X</span> your investment with <span className="color4">XPRO</span>{' '}
+						<span className="color3">5X</span> your investment with <span className="color4">GHEE</span>{' '}
 						token airdrop
 					</h1>
 				</div>
@@ -126,6 +125,7 @@ const Section1 = (props) => {
 									)
 								}
 								target="_blank"
+								rel="noreferrer"
 							>
 								Check Contract
 							</a>
@@ -135,16 +135,16 @@ const Section1 = (props) => {
 						<div className="info-box">
 							<h2>Today's ROI</h2>
 							<div className="amnt">{props.contractData ? props.contractData.todaysROI : 0} %</div>
-							<div className="timer">
-								{timerHours} : {timerMin} : {timerSec}
-							</div>
+							<a className="btn" href="https://www.facebook.com/groups/tronsoffical/" target="_blank"
+								rel="noreferrer">Join Facebook</a>
 						</div>
 					</div>
 					<div className="col-lg-4">
 						<div className="info-box">
 							<h2>Total Investors</h2>
 							<div className="amnt">{props.contractData ? props.contractData.totalInvestors : 0}</div>
-							<button className="btn">Join Telegram</button>
+							<a className="btn" href="https://t.me/trons_offical" target="_blank"
+								rel="noreferrer">Join Telegram</a>
 						</div>
 					</div>
 				</div>

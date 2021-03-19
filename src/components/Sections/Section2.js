@@ -2,23 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {Input} from 'reactstrap'
+import { Input } from 'reactstrap'
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 const Section2 = (props) => {
-	const [ joinValue, setJoinValue ] = useState(0);
-	const [copySuccess, setCopySuccess] = useState("");
-	const [refLink, setRefLink] = useState();
-	const [walletAddress,setWalletAddress]=useState(false);
-	const joinHandle = (trx) => {
-		setJoinValue(joinValue + trx);
-		
-	};
-	const resetInput = () => {
-		setJoinValue(0);
-	};
+  const [joinValue, setJoinValue] = useState(0);
+  const [copySuccess, setCopySuccess] = useState("");
+  const [refLink, setRefLink] = useState();
+  const [walletAddress, setWalletAddress] = useState(false);
+  const joinHandle = (trx) => {
+    setJoinValue(joinValue + trx);
 
-	useEffect(() => {
+  };
+  const resetInput = () => {
+    setJoinValue(0);
+  };
+
+  useEffect(() => {
     if (props.address != "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t") {
       setWalletAddress(props.account);
       setRefLink(getMyRefLink(props.address));
@@ -27,29 +27,30 @@ const Section2 = (props) => {
     console.log("pros.accout", props.address);
   }, [props.address]);
 
-	const deposit = async () => {
-		if (!props.contract) {
-			alert('contract not loaded!');
-			return;
-		}
-		await props.contract.methods
-			.invest(props.personalData.account)
-			.send({ from: props.personalData.account, callValue: joinValue*10**6 });
-			
-	};
-	// console.log("personal data",props.personalData)
+  const deposit = async () => {
+    setJoinValue(0)
+    if (!props.contract) {
+      alert('contract not loaded!');
+      return;
+    }
+    await props.contract.methods
+      .invest(props.personalData.account)
+      .send({ from: props.personalData.account, callValue: joinValue * 10 ** 6 });
 
-	const withdrawAll = async () => {
-		if (!props.contract) {
-			alert('contract not loaded');
-			return;
-		}
-		await props.contract.methods.withdrawAll().send({from:props.personalData.walletAddress})
-	}
-	const getMyRefLink = (addr)=> {
-		return "https://tronpro.com/?ref=" + addr;
-	  };
-	function copyToClipboard(e) {
+  };
+  // console.log("personal data",props.personalData)
+
+  const withdrawAll = async () => {
+    if (!props.contract) {
+      alert('contract not loaded');
+      return;
+    }
+    await props.contract.methods.withdrawAll().send({ from: props.personalData.walletAddress })
+  }
+  const getMyRefLink = (addr) => {
+    return "https://tronpro.com/?ref=" + addr;
+  };
+  function copyToClipboard(e) {
     var textField = document.createElement("textarea");
     textField.innerText = refLink;
     document.body.appendChild(textField);
@@ -61,23 +62,23 @@ const Section2 = (props) => {
     toast.success("Referral Link Copied");
   }
 
-	const reInvestAll = async () => {
-		if (!props.contract) {
-			alert('contract not loaded');
-			return;
-		}
-		await props.contract.methods.reinvestAll().send({ from: props.personalData.walletAddress });
-	};
+  const reInvestAll = async () => {
+    if (!props.contract) {
+      alert('contract not loaded');
+      return;
+    }
+    await props.contract.methods.reinvestAll().send({ from: props.personalData.walletAddress });
+  };
 
-	const withdrawReInvest = async () => {
-		if (!props.contract) {
-			alert('contract not loaded');
-			return;
-		}
-		await props.contract.methods.withdraw50Percent().send({ from: props.personalData.walletAddress });
-	};
+  const withdrawReInvest = async () => {
+    if (!props.contract) {
+      alert('contract not loaded');
+      return;
+    }
+    await props.contract.methods.withdraw50Percent().send({ from: props.personalData.walletAddress });
+  };
 
-	return (
+  return (
     <section>
       <div className="container">
         <hr />
@@ -271,10 +272,10 @@ const Section2 = (props) => {
 };
 
 const mapStateToProps = (state) => {
-	return {
-		personalData: state.personalData,
-		contract: state.contract
-	};
+  return {
+    personalData: state.personalData,
+    contract: state.contract
+  };
 };
 
 export default connect(mapStateToProps)(Section2);

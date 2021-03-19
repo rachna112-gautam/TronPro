@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './../../images/logo.png';
-import pdf from './../../images/PDF TRONS.PRO.pdf';
+import pdf from './../../images/edited PDF TRONS.PRO.pdf';
 const Header = (props) => {
 	return (
 		<header>
@@ -28,20 +28,14 @@ const Header = (props) => {
 								<li className="nav-item dropdown">
 									<a
 										className="nav-link "
-										href="#pdf"
+										href={pdf} target="_blank" rel="noreferrer"
 										id="navbarDropdown"
 										role="button"
-										data-toggle="dropdown"
-										aria-haspopup="true"
-										aria-expanded="false"
+
 									>
 										PDF
 									</a>
-									<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-										<a className="dropdown-item" href={pdf} target="_blank" rel="noreferrer">
-											ENGLISH
-										</a>
-									</div>
+
 								</li>
 
 								<li className="nav-item">
@@ -58,12 +52,11 @@ const Header = (props) => {
 								<li className="nav-item">
 									<a
 										className="nav-link "
-										href="#Telegram"
-										id="navbarDropdown"
+										href="https://t.me/trons_officalgroup"
+
 										role="button"
-										data-toggle="dropdown"
-										aria-haspopup="true"
-										aria-expanded="false"
+										target="_blank"
+										rel="noreferrer"
 									>
 										Telegram
 									</a>
