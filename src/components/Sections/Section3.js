@@ -157,7 +157,7 @@ const Section3 = (props) => {
 								</li>
 								<li>
 									<span>Income withdrawn to wallet</span>
-									<span>{props.personalData ? props.personalData.withdrawnAmount : '0x'} TRX</span>
+									<span>{props.personalData ? props.personalData.withdrawnAmount : 0} TRX</span>
 								</li>
 							</ul>
 						</div>
