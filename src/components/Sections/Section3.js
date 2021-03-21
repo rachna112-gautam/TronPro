@@ -2,8 +2,8 @@ import React, { Component, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 const Section3 = (props) => {
-	const [ account, setAccount ] = useState('0x');
-	const [ tronWeb, setTronWeb ] = useState();
+	const [account, setAccount] = useState('0x');
+	const [tronWeb, setTronWeb] = useState();
 
 	useEffect(
 		() => {
@@ -27,8 +27,6 @@ const Section3 = (props) => {
 					<div
 						className="col-lg-6 mt-3 mb-3"
 						data-aos="fade-right"
-						data-aos-offset="200"
-						data-aos-easing="ease-in-sine"
 					>
 						<div className="info">
 							<h3>Smart Contract Info </h3>
@@ -46,6 +44,7 @@ const Section3 = (props) => {
 												)
 											}
 											target="_blank"
+											rel="noreferrer"
 										>
 											{props.contractData ? (
 												props.contractData.contractAddress.slice(0, 7) + '...'
@@ -84,6 +83,7 @@ const Section3 = (props) => {
 												)
 											}
 											target="_blank"
+											rel="noreferrer"
 										>
 											{props.personalData ? (
 												props.personalData.referredBy.slice(0, 7) + '...'
@@ -108,8 +108,6 @@ const Section3 = (props) => {
 					<div
 						className="col-lg-6 mt-3 mb-3"
 						data-aos="fade-left"
-						data-aos-offset="200"
-						data-aos-easing="ease-in-sine"
 					>
 						<div className="info">
 							<h3>Personal Statistic </h3>
@@ -118,7 +116,7 @@ const Section3 = (props) => {
 									<span>Your address</span>
 
 									<span>
-										<a href={`https://shasta.tronscan.org/#/contract/${account}`} target="_blank">
+										<a href={`https://shasta.tronscan.org/#/contract/${account}`} target="_blank" rel="noreferrer">
 											{account.slice(0, 7) + '...'}
 										</a>
 									</span>
