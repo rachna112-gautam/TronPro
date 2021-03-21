@@ -510,3 +510,7 @@ ul.fqa6-list {
   color: rgba(67, 127, 195, 0.7);
   text-decoration: none;
 }
+
+button#rcc-confirm-button {
+  background-color: #105d9e !important;
+}
