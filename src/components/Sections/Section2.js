@@ -19,7 +19,7 @@ const Section2 = (props) => {
   };
 
   useEffect(() => {
-    if (props.address != "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t") {
+    if (props.address !== "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t") {
       setWalletAddress(props.account);
       setRefLink(getMyRefLink(props.address));
     }
@@ -41,6 +41,12 @@ const Section2 = (props) => {
   // console.log("personal data",props.personalData)
 
   const withdrawAll = async () => {
+    const minAmnt = 100;
+    if (minAmnt <= 100) {
+      toast.error("balance insufficient")
+      return;
+    }
+
     if (!props.contract) {
       alert('contract not loaded');
       return;
