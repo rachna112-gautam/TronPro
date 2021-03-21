@@ -19,19 +19,23 @@ const Section2 = (props) => {
 		setJoinValue(0);
 	};
 
-	useEffect(() => {
-		let url = window.location.href;
-		let params = new URL(url).searchParams;
-		localStorage.setItem('ref', params.get('ref'));
-		setRef(localStorage.getItem('ref'));
-	}, window.location.href);
+	useEffect(
+		() => {
+			let url = window.location.href;
+			let params = new URL(url).searchParams;
+			localStorage.setItem('ref', params.get('ref'));
+			setRef(localStorage.getItem('ref'));
+		},
+		[ window.location.href ]
+	);
 
 	useEffect(() => {
 		if (props.address !== 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t') {
 			setWalletAddress(props.account);
 			setRefLink(getMyRefLink(props.address));
+			
 		}
-	});
+	}, []);
 
 	useEffect(
 		() => {

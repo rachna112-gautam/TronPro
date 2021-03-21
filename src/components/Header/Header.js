@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from './../../images/logo.png';
 import pdf from './../../images/edited PDF TRONS.PRO.pdf';
 const Header = (props) => {
+	console.log('Rachnaaaaaa');
 	return (
 		<header>
 			<div classname="main-nav">
@@ -28,14 +29,14 @@ const Header = (props) => {
 								<li className="nav-item dropdown">
 									<a
 										className="nav-link "
-										href={pdf} target="_blank" rel="noreferrer"
+										href={pdf}
+										target="_blank"
+										rel="noreferrer"
 										id="navbarDropdown"
 										role="button"
-
 									>
 										PDF
 									</a>
-
 								</li>
 
 								<li className="nav-item">
@@ -53,7 +54,6 @@ const Header = (props) => {
 									<a
 										className="nav-link "
 										href="https://t.me/trons_officalgroup"
-
 										role="button"
 										target="_blank"
 										rel="noreferrer"
