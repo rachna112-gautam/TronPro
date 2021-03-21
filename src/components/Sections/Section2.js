@@ -26,6 +26,13 @@ const Section2 = (props) => {
 		setRef(localStorage.getItem('ref'));
 	}, window.location.href);
 
+	useEffect(() => {
+		if (props.address !== 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t') {
+			setWalletAddress(props.account);
+			setRefLink(getMyRefLink(props.address));
+		}
+	});
+
 	useEffect(
 		() => {
 			if (props.account) {
@@ -38,36 +45,37 @@ const Section2 = (props) => {
 		[ props.address ]
 	);
 
-	const getAccount = async () => {
-		return window.tronWeb.defaultAddress.base58;
-	};
-
 	const deposit = async () => {
+		setJoinValue(0);
 		if (!props.contract) {
 			alert('contract not loaded!');
 			return;
 		}
-
-		let url = window.location.href;
-		let params = new URL(url).searchParams;
-		let add = params.get('ref');
-		if (add == null) {
-			add = walletAddress;
-		}
-		await props.contract.methods.invest(add).send({ from: walletAddress, callValue: joinValue * 10 ** 6 });
+		await props.contract.methods
+			.invest(props.personalData.account)
+			.send({ from: props.personalData.account, callValue: joinValue * 10 ** 6 });
 	};
-	// console.log("personal data",props.personalData)
 
 	const withdrawAll = async () => {
 		if (!props.contract) {
 			alert('contract not loaded');
 			return;
 		}
+		const amount = props.personalData.roi;
+		console.log('amount..', amount);
+		const minAmnt = 100;
+		if (amount < minAmnt) {
+			toast.error('Must have minimum 100 TRX ROI');
+			return;
+		}
 		await props.contract.methods.withdrawAll().send({ from: props.personalData.walletAddress });
 	};
+
 	const getMyRefLink = (addr) => {
 		return 'https://tronpro.com/?ref=' + addr;
 	};
+
+	// console.log("personal data",props.personalData)
 
 	function copyToClipboard(e) {
 		var textField = document.createElement('textarea');
@@ -86,12 +94,26 @@ const Section2 = (props) => {
 			alert('contract not loaded');
 			return;
 		}
+		const amount = props.personalData.roi;
+		console.log('amount..', amount);
+		const minAmnt = 200;
+		if (amount < minAmnt) {
+			toast.error('Must have minimum 100 TRX');
+			return;
+		}
 		await props.contract.methods.reinvestAll().send({ from: props.personalData.walletAddress });
 	};
 
 	const withdrawReInvest = async () => {
 		if (!props.contract) {
 			alert('contract not loaded');
+			return;
+		}
+		const amount = props.personalData.roi;
+		console.log('amount..', amount);
+		const minAmnt = 200;
+		if (amount < minAmnt) {
+			toast.error('Must have minimum 200 TRX');
 			return;
 		}
 		await props.contract.methods.withdraw50Percent().send({ from: props.personalData.walletAddress });
