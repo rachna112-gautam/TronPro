@@ -90,7 +90,9 @@ const Section3 = (props) => {
 										</a>
 									</span>
 								</li>
-
+								<li />
+								<li />
+								<li />
 								<li />
 								<li />
 								<li />
@@ -128,11 +130,16 @@ const Section3 = (props) => {
 								</li>
 
 								<li>
-									<span>Daily income 1%</span>
+									<span>Daily income</span>
 									<span>{props.personalData ? props.personalData.roi : 0} TRX</span>
 								</li>
 								<li>
-									<span>Reward Earned </span>
+									<span>Referral Income Earned</span>
+									<span>{props.personalData ? props.personalData.referralIncome : 0} TRX</span>
+								</li>
+
+								<li>
+									<span>ReInvest Reward Earned </span>
 									<span>
 										{props.personalData ? props.personalData.reInvestRewardEarned : '0x'} TRX
 									</span>

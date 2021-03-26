@@ -233,7 +233,7 @@ class FAQ extends Component{
               You can directly send support queries to 
               <a href="admin@trons.pro" target="_blank" rel="noreferrer" aria-label="Download"> admin@trons.pro </a>
               
-              or you can connect through our telegram channel  <a href="  https://t.me/tronspro" target="_blank" rel="noreferrer" aria-label="Download">  https://t.me/tronspro</a>
+              or you can connect through our telegram channel  <a href="  https://t.me/trons_offical" target="_blank" rel="noreferrer" aria-label="Download">  https://t.me/trons_offical</a>
             
               
               </div>

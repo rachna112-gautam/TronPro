@@ -4,13 +4,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Input } from 'reactstrap';
 // import "bootstrap/dist/css/bootstrap.min.css";
-
+import Config from '../../Config';
 const Section2 = (props) => {
 	const [ joinValue, setJoinValue ] = useState(0);
 	const [ copySuccess, setCopySuccess ] = useState('');
 	const [ refLink, setRefLink ] = useState();
 	const [ walletAddress, setWalletAddress ] = useState(false);
-	const [ ref, setRef ] = useState('TYPGbv47eFGBCDvjrPZNgXs3JfrqPMTWS9');
+	const [ ref, setRef ] = useState(Config.CONTRACT_ADDRESS);
 
 	const joinHandle = (trx) => {
 		setJoinValue(joinValue + trx);
@@ -24,7 +24,7 @@ const Section2 = (props) => {
 			let url = window.location.href;
 			let params = new URL(url).searchParams;
 			localStorage.setItem('ref', params.get('ref'));
-			setRef(localStorage.getItem('ref'));
+			if (localStorage.getItem('ref') != '') setRef(localStorage.getItem('ref'));
 		},
 		[ window.location.href ]
 	);
@@ -33,7 +33,6 @@ const Section2 = (props) => {
 		if (props.address !== 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t') {
 			setWalletAddress(props.account);
 			setRefLink(getMyRefLink(props.address));
-			
 		}
 	}, []);
 
@@ -55,9 +54,23 @@ const Section2 = (props) => {
 			alert('contract not loaded!');
 			return;
 		}
-		await props.contract.methods
-			.invest(props.personalData.account)
-			.send({ from: props.personalData.account, callValue: joinValue * 10 ** 6 });
+		let entryAmount = joinValue;
+		let account = props.personalData.account;
+
+		if (!entryAmount || !account) {
+			alert('Entry Amount Invalid!');
+			return;
+		}
+		let url = window.location.href;
+		let params = new URL(url).searchParams;
+		let _ref = params.get('ref');
+		if (_ref === null) {
+			_ref = Config.CONTRACT_ADDRESS;
+		}
+		console.log('_ref', ref);
+		props.contract.methods.invest(_ref).send({ from: account, callValue: entryAmount * 10 ** 6 }).then(() => {
+			window.location.reload();
+		});
 	};
 
 	const withdrawAll = async () => {
@@ -72,7 +85,9 @@ const Section2 = (props) => {
 			toast.error('Must have minimum 100 TRX ROI');
 			return;
 		}
-		await props.contract.methods.withdrawAll().send({ from: props.personalData.walletAddress });
+		props.contract.methods.withdrawAll().send({ from: props.personalData.walletAddress }).then(() => {
+			window.location.reload();
+		});
 	};
 
 	const getMyRefLink = (addr) => {
@@ -100,12 +115,14 @@ const Section2 = (props) => {
 		}
 		const amount = props.personalData.roi;
 		console.log('amount..', amount);
-		const minAmnt = 200;
+		const minAmnt = 100;
 		if (amount < minAmnt) {
 			toast.error('Must have minimum 100 TRX');
 			return;
 		}
-		await props.contract.methods.reinvestAll().send({ from: props.personalData.walletAddress });
+		props.contract.methods.reinvestAll().send({ from: props.personalData.walletAddress }).then(() => {
+			window.location.reload();
+		});
 	};
 
 	const withdrawReInvest = async () => {
@@ -120,7 +137,9 @@ const Section2 = (props) => {
 			toast.error('Must have minimum 200 TRX');
 			return;
 		}
-		await props.contract.methods.withdraw50Percent().send({ from: props.personalData.walletAddress });
+		props.contract.methods.withdraw50Percent().send({ from: props.personalData.walletAddress }).then(() => {
+			window.location.reload();
+		});
 	};
 
 	return (
@@ -280,7 +299,7 @@ const Section2 = (props) => {
 					</div>
 				</div>
 				<div className="">
-					<p>Tron Network fee 40-60 trx extra</p>
+					<p>Tron Network fee 15-60 trx extra</p>
 				</div>
 			</div>
 			<ToastContainer />

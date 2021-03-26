@@ -128,7 +128,6 @@ const BlockchainProvider = (props) => {
             totalInvestors,
             totalTRXDeposit,
             totalTRXReInvested,
-            totalTRXReInvested,
             totalAmountWithdrawn,
             contractAddress
         })

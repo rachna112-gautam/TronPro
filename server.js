@@ -14,15 +14,14 @@
 
 //     var url = "mongodb://localhost:27017/";
 
-var mysql = require('mysql');
+const express = require('express');
+const path = require('path');
+const app = express();
 
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "yourusername",
-  password: "yourpassword"
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
+app.listen(9000);
