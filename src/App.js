@@ -45,7 +45,6 @@ const App = (props) => {
 				enableDeclineButton
 			>
 				This website uses cookies to ensure you get the best experience on our website.
-			
 			</CookieConsent>
 
 			<BlockchainProvider />

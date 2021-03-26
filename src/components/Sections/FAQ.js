@@ -21,7 +21,7 @@ class FAQ extends Component{
               
                   <div id="collapseOne" className="collapse " aria-labelledby="headingOne" data-parent="#mainAccordion">
                     <div className="card-body" >
-                    Trons.pro is a tron smart contract investment project which works completely decentralized principle on tron blockchain. Trons.pro investment contract runs by community sharing system. Shared fund distribution system controls the project with 100% transparency, verified and audited contract on tron blockchain.  As decentralized project nobody can control or modify the project including the developer. So the investor community will drive the project and earn 300% return with up to 6% daily depending up on the smart contract balance. The more contract balance the more daily return.
+                    Trons.pro is a tron smart contract investment project which is completely based on decentralized principle. Trons.pro investment contract runs by community sharing system. Shared fund distribution system controls the project with 100% transparency, verified and audited contract on tron blockchain.  As decentralized project nobody can control or modify the project including the developer. So the investor community will drive the project and earn 300% return with up to 6% daily depending up on the smart contract balance. The more contract balance the more daily return.
                     </div>
                   </div>
                 </div>
@@ -74,7 +74,7 @@ class FAQ extends Component{
                 <div id="collapseFour" className="collapse" aria-labelledby="headingFour" data-parent="#mainAccordion">
                   <div className="card-body">
                   After filling the enough tron in your wallet go to  <a href="https://www.trons.pro" target="_blank" rel="noreferrer" aria-label="Download">https://www.trons.pro</a> website.<br/>
-                  At top right corner you can see a button connect wallet. If you are already logged in your wallet, contract automatically connects your wallet and shows your wallet address and wallet trx balance.<br/>
+                  At top right corner you can see your wallet address, if you are already logged in your wallet, contract automatically connects your wallet and shows your wallet address and wallet trx balance.<br/>
                   If you not logged in the wallet then click the button connect wallet and log in. After connecting your wallet you can type the amount of tron (TRX) you want to invest in the invest column after that conform and accept the tron network fee and complete the investment. You can check your all statistics and contract details in the website and do reinvest or withdraw your profit daily.
                   </div>
                 </div>
@@ -194,7 +194,7 @@ class FAQ extends Component{
           </div>
           <div id="collapse10" className="collapse" aria-labelledby="heading10" data-parent="#mainAccordion">
             <div className="card-body">
-            Yes, off course. After making first investment you get your referral link. And with this link you can refer your friends and relatives and also through social media you can earn good commission.<br/>
+            Yes, of course. After making first investment you get your referral link. And with this link you can refer your friends and relatives and also through social media you can earn good commission.<br/>
             <b>Referral Rewards</b>
             <ul className="mt-1" style={{"paddingInlineStart": "0px" }}>
             <li>1<sup>st</sup> level = 10%</li>

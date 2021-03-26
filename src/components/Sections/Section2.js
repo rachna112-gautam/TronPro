@@ -6,11 +6,11 @@ import { Input } from 'reactstrap';
 // import "bootstrap/dist/css/bootstrap.min.css";
 import Config from '../../Config';
 const Section2 = (props) => {
-	const [ joinValue, setJoinValue ] = useState(0);
-	const [ copySuccess, setCopySuccess ] = useState('');
-	const [ refLink, setRefLink ] = useState();
-	const [ walletAddress, setWalletAddress ] = useState(false);
-	const [ ref, setRef ] = useState(Config.CONTRACT_ADDRESS);
+	const [joinValue, setJoinValue] = useState(0);
+	const [copySuccess, setCopySuccess] = useState('');
+	const [refLink, setRefLink] = useState();
+	const [walletAddress, setWalletAddress] = useState(false);
+	const [ref, setRef] = useState(Config.CONTRACT_ADDRESS);
 
 	const joinHandle = (trx) => {
 		setJoinValue(joinValue + trx);
@@ -26,7 +26,7 @@ const Section2 = (props) => {
 			localStorage.setItem('ref', params.get('ref'));
 			if (localStorage.getItem('ref') != '') setRef(localStorage.getItem('ref'));
 		},
-		[ window.location.href ]
+		[window.location.href]
 	);
 
 	useEffect(() => {
@@ -45,7 +45,7 @@ const Section2 = (props) => {
 
 			console.log('pros.accout', props.address);
 		},
-		[ props.address ]
+		[props.address]
 	);
 
 	const deposit = async () => {
@@ -193,9 +193,6 @@ const Section2 = (props) => {
 								</button>
 							</div>
 							<div className="rdbtn flex-wrap">
-								<button type="button" className="btn reset m-1" onClick={() => resetInput()}>
-									Reset
-								</button>
 								<button
 									type="button"
 									className="btn deposit  m-1"
@@ -204,6 +201,9 @@ const Section2 = (props) => {
 									}}
 								>
 									Deposit
+							</button>
+								<button type="button" className="btn reset m-1" onClick={() => resetInput()}>
+									Reset
 								</button>
 							</div>
 						</div>

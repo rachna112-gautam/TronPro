@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from './../../images/logo.png';
 import pdf from './../../images/edited PDF TRONS.PRO.pdf';
+import { connect } from 'react-redux';
 const Header = (props) => {
 	console.log('Rachnaaaaaa');
 	return (
@@ -40,7 +41,15 @@ const Header = (props) => {
 								</li>
 
 								<li className="nav-item">
-									<a className="nav-link" href="#contract">
+									<a className="nav-link" href={
+										props.contractData ? (
+											`https://shasta.tronscan.org/#/contract/${props.contractData.contractAddress}`
+										) : (
+											'https://shasta.tronscan.org'
+										)
+									}
+										target="_blank"
+										rel="noreferrer">
 										Contract
 									</a>
 								</li>
@@ -65,7 +74,8 @@ const Header = (props) => {
 							<div className="wallet text-center">
 								<span className="ywa-title">Your Wallet Address</span>
 								<span className="wallet-address">
-									<a href="#address">{props.address}</a>
+									<a href={`https://shasta.tronscan.org/#/address/` + props.address} target="_blank"
+										rel="noreferrer">{props.address}</a>
 								</span>
 							</div>
 						</div>
@@ -76,4 +86,10 @@ const Header = (props) => {
 	);
 };
 
-export default Header;
+
+const mapStateToProps = (state) => {
+	return { contractData: state.contractData };
+};
+
+
+export default connect(mapStateToProps)(Header);
