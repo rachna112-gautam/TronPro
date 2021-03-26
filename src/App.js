@@ -38,19 +38,14 @@ const App = (props) => {
 			<CookieConsent
 				location="bottom"
 				buttonText="Accept"
-				cookieName="myAwesomeCookieName2"
+				cookieName="myCookie"
 				style={{ background: "#2B373B" }}
-				buttonStyle={{ color: "#fff", fontSize: "13px" }}
+				buttonStyle={{ color: "#fff", fontSize: "17px" }}
 				expires={150}
-				onAccept={() => {
-					alert("Accept was triggered by clicking the Accept button");
-				}}
 				enableDeclineButton
-				onDecline={() => {
-					alert("nay!");
-				}}
 			>
-				This website uses cookies to ensure you get the best experience on our website. This enables us to understand how you use the site and track any patterns with regards how you are using our website. By using our website you consent to all cookies in accordance with our Cookie Policy.
+				This website uses cookies to ensure you get the best experience on our website.
+			
 			</CookieConsent>
 
 			<BlockchainProvider />
