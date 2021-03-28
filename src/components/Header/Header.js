@@ -3,7 +3,6 @@ import Logo from './../../images/logo.png';
 import pdf from './../../images/edited PDF TRONS.PRO.pdf';
 import { connect } from 'react-redux';
 const Header = (props) => {
-	console.log('Rachnaaaaaa');
 	return (
 		<header>
 			<div classname="main-nav">
