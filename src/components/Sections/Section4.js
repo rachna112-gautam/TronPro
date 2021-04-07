@@ -35,7 +35,7 @@ class Section4 extends Component {
 								</div>
 							</div>
 						</div>
-						<div className="col-lg-6">
+						<div className="col-lg-6 daily-roi">
 							<h3 className="airdrop-heading">Daily ROI Calculation</h3>
 							<div className="airdrop">
 								<ul>

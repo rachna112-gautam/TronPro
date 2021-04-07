@@ -210,8 +210,9 @@ section {
 }
 .btnContainer button {
   width: 100px;
-  background: linear-gradient(45deg, #046bb8, #19357c);
+  background: linear-gradient(45deg, #002743, #061d58);
   transition: all 0.3s ease-in-out;
+  border-color: #07284c !important;
 }
 
 .btnContainer button:hover {
@@ -249,7 +250,8 @@ section {
 
 .copybtn {
   width: 100px;
-  background: linear-gradient(45deg, #046bb8, #19357c);
+  border-color: #07284c !important;
+  background: linear-gradient(45deg, #002743, #061d58);
   transition: all 0.3s ease-in-out;
 }
 
@@ -276,7 +278,7 @@ section {
 }
 
 .rdbtn .deposit {
-  background-color: #f49411;
+  background-color: #0170bf;
 }
 .rdbtn button:hover {
   color: #fff;
@@ -480,8 +482,8 @@ ul.fqa6-list {
   color: #958ab4;
 }
 
-@media (max-width: 360px) {
-  .airdrop-heading {
+@media (max-width: 975px) {
+  h3.airdrop-heading {
     margin-top: 2rem;
   }
   .navbar-nav {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Slide1 from './../../images/slide-1.png';
 import Slide2 from './../../images/slide-2.png';
 import Slide3 from './../../images/slide-3.png';
-
+import pdf from './../../images/edited PDF TRONS.PRO.pdf';
 const Section1 = (props) => {
 	// const [timerDays, setTimerDays] = useState('00');
 	// const [timerHours, setTimerHours] = useState('00');
@@ -135,8 +135,8 @@ const Section1 = (props) => {
 						<div className="info-box">
 							<h2>Today's ROI</h2>
 							<div className="amnt">{props.contractData ? props.contractData.todaysROI : 0} %</div>
-							<a className="btn" href="https://www.facebook.com/groups/tronsoffical/" target="_blank"
-								rel="noreferrer">Join Facebook</a>
+							<a className="btn" href={pdf} target="_blank"
+								rel="noreferrer">PDF</a>
 						</div>
 					</div>
 					<div className="col-lg-4">

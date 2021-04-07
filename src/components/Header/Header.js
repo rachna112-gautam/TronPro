@@ -1,9 +1,7 @@
 import React from 'react';
 import Logo from './../../images/logo.png';
-import pdf from './../../images/edited PDF TRONS.PRO.pdf';
 import { connect } from 'react-redux';
 const Header = (props) => {
-	console.log('Rachnaaaaaa');
 	return (
 		<header>
 			<div classname="main-nav">
@@ -27,18 +25,7 @@ const Header = (props) => {
 
 						<div className="collapse navbar-collapse main-nav-links" id="navbarSupportedContent">
 							<ul className="navbar-nav mr-auto ml-auto">
-								<li className="nav-item dropdown">
-									<a
-										className="nav-link "
-										href={pdf}
-										target="_blank"
-										rel="noreferrer"
-										id="navbarDropdown"
-										role="button"
-									>
-										PDF
-									</a>
-								</li>
+
 
 								<li className="nav-item">
 									<a className="nav-link" href={
@@ -69,6 +56,18 @@ const Header = (props) => {
 									>
 										Telegram
 									</a>
+								</li>
+								<li className="nav-item dropdown">
+									<a
+										className="nav-link "
+										href="https://www.facebook.com/groups/tronsoffical/"
+										target="_blank"
+										rel="noreferrer"
+										id="navbarDropdown"
+										role="button"
+									>
+										Facebook
+								</a>
 								</li>
 							</ul>
 							<div className="wallet text-center">
