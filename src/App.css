@@ -173,21 +173,22 @@ section {
 .info-box a,
 .info-box div.timer {
   color: #fff;
-  background-color: darkcyan;
+  background: linear-gradient(45deg, #237fc1, #254aa7);
+  border-color: #2a5585 !important;
   width: 100%;
   padding: 0.6rem;
   margin: 0.8rem 0;
   border-radius: 0.75rem;
   font-size: 1.2rem;
   font-weight: 600;
-  border: 4px solid darkcyan;
-  transition: all 0.3s ease-in-out;
+  border: 4px solid #2a5585;
+  transition: all 0.3s ease-in;
 }
 
 .info-box button:hover,
 .info-box a:hover {
-  background-color: #fff;
-  color: darkcyan;
+  background: #fff !important;
+  color: #2a5585;
   box-shadow: 0 5px 5px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -210,9 +211,9 @@ section {
 }
 .btnContainer button {
   width: 100px;
-  background: linear-gradient(45deg, #002743, #061d58);
+  background: linear-gradient(45deg, #237fc1, #254aa7);
   transition: all 0.3s ease-in-out;
-  border-color: #07284c !important;
+  border-color: #2a5585 !important;
 }
 
 .btnContainer button:hover {
@@ -250,8 +251,8 @@ section {
 
 .copybtn {
   width: 100px;
-  border-color: #07284c !important;
-  background: linear-gradient(45deg, #002743, #061d58);
+  background: linear-gradient(45deg, #237fc1, #254aa7);
+  border-color: #2a5585 !important;
   transition: all 0.3s ease-in-out;
 }
 

@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, } from "react";
 import { connect } from 'react-redux';
-import { accountUpdate, onContractLoaded, onPersonalDataLoaded , onContractDataLoaded} from "../../redux/actions"
+import { accountUpdate, onContractLoaded, onPersonalDataLoaded, onContractDataLoaded } from "../../redux/actions"
 import Config from "../../Config"
 const BlockchainProvider = (props) => {
 
@@ -18,7 +18,7 @@ const BlockchainProvider = (props) => {
         const interval = setInterval(() => {
             if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
                 console.log("fddf", window.tronWeb.defaultAddress.base58)
-                setAccount( window.tronWeb.defaultAddress.base58)
+                setAccount(window.tronWeb.defaultAddress.base58)
                 clearInterval(interval)
                 setTronWeb(window.tronWeb)
                 loadData(window.tronWeb, window.tronWeb.defaultAddress.base58)
@@ -29,7 +29,7 @@ const BlockchainProvider = (props) => {
 
 
     useEffect(() => {
-        
+
         props.dispatch(accountUpdate({
             address: account,
             myTronBal: myTronBal
@@ -39,7 +39,7 @@ const BlockchainProvider = (props) => {
     useEffect(() => {
         initPersonalData()
         props.dispatch(accountUpdate({
-           personalData: personalData
+            personalData: personalData
         }))
     }, [account])
 
@@ -51,14 +51,14 @@ const BlockchainProvider = (props) => {
         }))
     }, [myTronBal])
 
-    useEffect(()=>{
+    useEffect(() => {
         initContractData()
-        
-    },[contractData])
 
-    useEffect(()=>{
+    }, [contractData])
+
+    useEffect(() => {
         initPersonalData()
-    },[personalData])
+    }, [personalData])
 
     const loadContract = async (_tronWeb, myWallet) => {
 
@@ -67,7 +67,7 @@ const BlockchainProvider = (props) => {
             .at(Config.CONTRACT_ADDRESS)
 
 
-         setContract(_contract)
+        setContract(_contract)
 
         props.dispatch(onContractLoaded(_contract))
 
@@ -76,7 +76,7 @@ const BlockchainProvider = (props) => {
         await initContractData();
         await initPersonalData();
 
-        setMyData (_contract)
+        setMyData(_contract)
 
     }
 
@@ -99,8 +99,8 @@ const BlockchainProvider = (props) => {
             bal = "00"
         }
 
-        // console.log("baall", bal)
-         setMyTronBal(bal)
+        console.log("bal", bal)
+        setMyTronBal(bal)
     }
 
     const initContractData = async () => {
@@ -111,17 +111,17 @@ const BlockchainProvider = (props) => {
         let totalAmountWithdrawn = 0;
         let contractAddress = "0x"
         let totalTRXReInvested = 0;
-        if(contract){
-            contractBalance = beautifyNumber((await contract.methods.getContractBalance().call()).toNumber(),true);
+        if (contract) {
+            contractBalance = beautifyNumber((await contract.methods.getContractBalance().call()).toNumber(), true);
             todaysROI = (await contract.methods.getPercent().call()).toNumber();
             totalInvestors = (await contract.methods.totalUsers().call()).toNumber();
-            totalTRXDeposit = beautifyNumber((await contract.methods.totalInvested().call()).toNumber(),true);
-            totalAmountWithdrawn = beautifyNumber((await contract.methods.totalWithdrawn().call()).toNumber(),true);
+            totalTRXDeposit = beautifyNumber((await contract.methods.totalInvested().call()).toNumber(), true);
+            totalAmountWithdrawn = beautifyNumber((await contract.methods.totalWithdrawn().call()).toNumber(), true);
             contractAddress = Config.CONTRACT_ADDRESS
             totalTRXReInvested = beautifyNumber(await contract.methods.totalReinvest().call());
-            
+
         }
-        
+
         setContractData({
             contractBalance,
             todaysROI,
@@ -135,7 +135,7 @@ const BlockchainProvider = (props) => {
         // console.log("contractData",contractData);        
     }
 
-    const initPersonalData = async ()=>{
+    const initPersonalData = async () => {
         let roi = null;
         let referralIncome = 0;
         let withdrawnAmount = 0;
@@ -147,13 +147,13 @@ const BlockchainProvider = (props) => {
         let userTotalReInvestedAmount = 0;
         let reInvestRewardEarned = 0;
 
-        if(contract){
+        if (contract) {
             let userInfo = (await contract.methods.users(window.tronWeb.defaultAddress.base58).call());
             isExist = userInfo.isExist;
-            roi = beautifyNumber((await contract.methods.getROI(window.tronWeb.defaultAddress.base58).call()).toNumber(),true);
+            roi = beautifyNumber((await contract.methods.getROI(window.tronWeb.defaultAddress.base58).call()).toNumber(), true);
             referredBy = tronWeb.address.fromHex(userInfo.referrer);
-            withdrawnAmount = beautifyNumber(userInfo.totalWithdrawn.toNumber(),true);
-            referralIncome = beautifyNumber(userInfo.refReward.toNumber(),true);
+            withdrawnAmount = beautifyNumber(userInfo.totalWithdrawn.toNumber(), true);
+            referralIncome = beautifyNumber(userInfo.refReward.toNumber(), true);
             walletBalance = myTronBal;
             activeInvestments = beautifyNumber(await contract.methods.getActiveDepositsSum(window.tronWeb.defaultAddress.base58).call());
             userTotalInvestedAmount = beautifyNumber(userInfo.totalInvestedAmount)
@@ -190,7 +190,8 @@ const BlockchainProvider = (props) => {
     }
 
 
-    return <></>
+    return <>
+    </>
 }
 
 

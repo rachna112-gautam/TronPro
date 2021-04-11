@@ -7,8 +7,10 @@ import { Input } from 'reactstrap';
 import Config from '../../Config';
 const Section2 = (props) => {
 	const [joinValue, setJoinValue] = useState(0);
+	// eslint-disable-next-line no-unused-vars
 	const [copySuccess, setCopySuccess] = useState('');
 	const [refLink, setRefLink] = useState();
+	// eslint-disable-next-line no-unused-vars
 	const [walletAddress, setWalletAddress] = useState(false);
 	const [ref, setRef] = useState(Config.CONTRACT_ADDRESS);
 
@@ -24,7 +26,7 @@ const Section2 = (props) => {
 			let url = window.location.href;
 			let params = new URL(url).searchParams;
 			localStorage.setItem('ref', params.get('ref'));
-			if (localStorage.getItem('ref') != '') setRef(localStorage.getItem('ref'));
+			if (localStorage.getItem('ref') !== '') setRef(localStorage.getItem('ref'));
 		},
 		[window.location.href]
 	);
@@ -68,7 +70,7 @@ const Section2 = (props) => {
 			_ref = Config.CONTRACT_ADDRESS;
 		}
 		console.log('_ref', ref);
-		props.contract.methods.invest(_ref).send({ from: account, callValue: entryAmount * 10 ** 6 }).then(() => {
+		props.contract.methods.invest(_ref).send({ from: account, callValue: entryAmount * 10 ** 6, feeLimit: 1000000000 }).then(() => {
 			window.location.reload();
 		});
 	};
@@ -85,7 +87,7 @@ const Section2 = (props) => {
 			toast.error('Must have minimum 100 TRX ROI');
 			return;
 		}
-		props.contract.methods.withdrawAll().send({ from: props.personalData.walletAddress }).then(() => {
+		props.contract.methods.withdrawAll().send({ from: props.personalData.walletAddress, feeLimit: 1000000000 }).then(() => {
 			window.location.reload();
 		});
 	};
@@ -120,7 +122,7 @@ const Section2 = (props) => {
 			toast.error('Must have minimum 100 TRX');
 			return;
 		}
-		props.contract.methods.reinvestAll().send({ from: props.personalData.walletAddress }).then(() => {
+		props.contract.methods.reinvestAll().send({ from: props.personalData.walletAddress, feeLimit: 1000000000 }).then(() => {
 			window.location.reload();
 		});
 	};
@@ -137,7 +139,7 @@ const Section2 = (props) => {
 			toast.error('Must have minimum 200 TRX');
 			return;
 		}
-		props.contract.methods.withdraw50Percent().send({ from: props.personalData.walletAddress }).then(() => {
+		props.contract.methods.withdraw50Percent().send({ from: props.personalData.walletAddress, feeLimit: 1000000000 }).then(() => {
 			window.location.reload();
 		});
 	};
