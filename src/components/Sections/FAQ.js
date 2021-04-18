@@ -179,7 +179,7 @@ class FAQ extends Component{
               Trons.pro is only the foundation project or tip of the ice berg. Our main project is yield farming project.<br/>
               GHEE is the native token for the project and only limited supply. <br/>
               The yield farming project planning to launch in BINANCE SMART CHAIN [BSC] or TRON SMART CHAIN<br/>
-              Anybody who invests minimum 3000 trx in <a href="https://www.trons.pro" target="_blank" rel="noreferrer" aria-label="Download"> https://www.trons.pro</a> project can be eligible for GHEE TOKEN AIRDROP.
+              Anybody who invests minimum 1000 trx in <a href="https://www.trons.pro" target="_blank" rel="noreferrer" aria-label="Download"> https://www.trons.pro</a> project can be eligible for GHEE TOKEN AIRDROP.
               
               </div>
             </div>
