@@ -65,7 +65,7 @@ const Section2 = (props) => {
 		let params = new URL(url).searchParams;
 		let _ref = params.get('ref');
 		if (_ref === null) {
-			_ref = Config.CONTRACT_ADDRESS;
+			_ref = Config.ADMIN_WALLET;
 		}
 		console.log('_ref', ref);
 		props.contract.methods.invest(_ref).send({ from: account, callValue: entryAmount * 10 ** 6 }).then(() => {
