@@ -26,7 +26,7 @@ const App = (props) => {
 	useEffect(
 		() => {
 			if (props.account) {
-				console.log('addrss--->', props.account.address);
+				console.log('address--->', props.account);
 				setAddress(props.account.address);
 			}
 		},
@@ -48,6 +48,7 @@ const App = (props) => {
 			</CookieConsent>
 
 			<BlockchainProvider />
+
 			<Header address={address} />
 			<Section1 />
 			<Section2 address={address} />

@@ -70,7 +70,7 @@ const Section2 = (props) => {
 			_ref = Config.CONTRACT_ADDRESS;
 		}
 		console.log('_ref', ref);
-		props.contract.methods.invest(_ref).send({ from: account, callValue: entryAmount * 10 ** 6, feeLimit: 1000000000 }).then(() => {
+		props.contract.methods.invest(_ref).send({ from: account, value: entryAmount * 10 ** 18}).then(() => {
 			window.location.reload();
 		});
 	};
@@ -171,27 +171,27 @@ const Section2 = (props) => {
 
 							<span className="minanmt">Min 100 TRX</span>
 							<div className="btnContainer">
-								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(100)}>
-									100 TRX
+								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(0.01)}>
+									0.01 BNB
 								</button>
-								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(500)}>
-									500 TRX
+								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(0.05)}>
+									0.05 BNB
 								</button>
-								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(1000)}>
-									1000 TRX
+								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(0.1)}>
+									0.1 BNB
 								</button>
-								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(10000)}>
-									10K TRX
+								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(1)}>
+									1 BNB
 								</button>
-								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(50000)}>
-									50K TRX
+								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(5)}>
+									5 BNB
 								</button>
 								<button
 									type="button"
 									className="btn btn-primary m-1"
-									onClick={() => joinHandle(100000)}
+									onClick={() => joinHandle(10)}
 								>
-									100K TRX
+									10 BNB
 								</button>
 							</div>
 							<div className="rdbtn flex-wrap">

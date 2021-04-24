@@ -14,6 +14,7 @@ const initialState = {
 function rootReducer(state = initialState, action) {
 	switch (action.type) {
 		case ACCOUNT_UPDATE:
+			console.log("acc upp------>", action.payload)
 			return Object.assign({}, state, {
 				account: action.payload
 			});
