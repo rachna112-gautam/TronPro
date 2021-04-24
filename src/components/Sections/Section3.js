@@ -31,7 +31,7 @@ const Section3 = (props) => {
 								<li>
 									<span>Smart contract address</span>
 									<span>
-										<a
+										{/* <a
 											href={
 												props.contractData ? (
 													`https://shasta.tronscan.org/#/contract/${props.contractData
@@ -48,7 +48,7 @@ const Section3 = (props) => {
 											) : (
 												'0x'
 											)}
-										</a>
+										</a> */}
 									</span>
 								</li>
 								<li>
@@ -70,7 +70,7 @@ const Section3 = (props) => {
 								<li>
 									<span>Referred by</span>
 									<span>
-										<a
+										{/* <a
 											href={
 												props.personalData ? (
 													`https://shasta.tronscan.org/#/contract/${props.personalData
@@ -87,7 +87,7 @@ const Section3 = (props) => {
 											) : (
 												'0x'
 											)}
-										</a>
+										</a> */}
 									</span>
 								</li>
 								<li />
