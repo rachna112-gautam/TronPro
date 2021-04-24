@@ -15,7 +15,7 @@ import './App.css';
 
 const App = (props) => {
 	const [address, setAddress] = useState('loading...');
-	console.log('hhfhjf', props.contract);
+	console.log('contract is---->>', props.contract);
 	useEffect(() => {
 		AOS.init({
 			duration: 2000
