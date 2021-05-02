@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from './../../images/logo.png';
 import { connect } from 'react-redux';
+
 const Header = (props) => {
+	const [address, setAddress] = useState();
+	useEffect(
+		() => {
+			if (props.account) {
+				console.log('address---> in header', props.account);
+				setAddress(props.account.address);
+			}
+		},
+		[props.account]
+	);
 	return (
 		<header>
 			<div classname="main-nav">
@@ -30,9 +41,9 @@ const Header = (props) => {
 								<li className="nav-item">
 									<a className="nav-link" href={
 										props.contractData ? (
-											`https://shasta.tronscan.org/#/contract/${props.contractData.contractAddress}`
+											`https://bscscan.com/address/${props.contractData.contractAddress}`
 										) : (
-											'https://shasta.tronscan.org'
+											'https://bscscan.com/address/'
 										)
 									}
 										target="_blank"
@@ -73,8 +84,7 @@ const Header = (props) => {
 							<div className="wallet text-center">
 								<span className="ywa-title">Your Wallet Address</span>
 								<span className="wallet-address">
-									<a href={`https://shasta.tronscan.org/#/address/` + props.address} target="_blank"
-										rel="noreferrer">{props.address}</a>
+									<a href={address ? `https://bscscan.com/address/+ ${address}` : "https://bscscan.com/"} target="_blank" rel="noreferrer">{address ? address.slice(0, 5) + "..." : "loading.."}</a>
 								</span>
 							</div>
 						</div>
@@ -87,7 +97,10 @@ const Header = (props) => {
 
 
 const mapStateToProps = (state) => {
-	return { contractData: state.contractData };
+	return {
+		contractData: state.contractData,
+		account: state.account
+	};
 };
 
 

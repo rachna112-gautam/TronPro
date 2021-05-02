@@ -11,8 +11,8 @@ const Section2 = (props) => {
 	const [copySuccess, setCopySuccess] = useState('');
 	const [refLink, setRefLink] = useState();
 	// eslint-disable-next-line no-unused-vars
-	const [walletAddress, setWalletAddress] = useState(false);
-	const [ref, setRef] = useState(Config.CONTRACT_ADDRESS);
+	const [address, setAddress] = useState();
+	const [ref, setRef] = useState("");
 
 	const joinHandle = (trx) => {
 		setJoinValue(joinValue + trx);
@@ -20,6 +20,17 @@ const Section2 = (props) => {
 	const resetInput = () => {
 		setJoinValue(0);
 	};
+
+
+	useEffect(
+		() => {
+			if (props.account) {
+				console.log('address---> in header', props.account);
+				setAddress(props.account.address);
+			}
+		},
+		[props.account]
+	);
 
 	useEffect(
 		() => {
@@ -32,23 +43,10 @@ const Section2 = (props) => {
 	);
 
 	useEffect(() => {
-		if (props.address !== 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t') {
-			setWalletAddress(props.account);
-			setRefLink(getMyRefLink(props.address));
+		if (address) {
+			setRefLink(getMyRefLink(address));
 		}
-	}, []);
-
-	useEffect(
-		() => {
-			if (props.account) {
-				setWalletAddress(props.account.address);
-				setRefLink(getMyRefLink(props.address));
-			}
-
-			console.log('pros.accout', props.address);
-		},
-		[props.address]
-	);
+	}, [address]);
 
 	const deposit = async () => {
 		setJoinValue(0);
@@ -67,10 +65,10 @@ const Section2 = (props) => {
 		let params = new URL(url).searchParams;
 		let _ref = params.get('ref');
 		if (_ref === null) {
-			_ref = Config.CONTRACT_ADDRESS;
+			_ref = "x0";
 		}
 		console.log('_ref', ref);
-		props.contract.methods.invest(_ref).send({ from: account, value: entryAmount * 10 ** 18}).then(() => {
+		props.contract.methods.invest(_ref).send({ from: account, value: entryAmount * 10 ** 18 }).then(() => {
 			window.location.reload();
 		});
 	};
@@ -93,7 +91,7 @@ const Section2 = (props) => {
 	};
 
 	const getMyRefLink = (addr) => {
-		return 'https://tronpro.com/?ref=' + addr;
+		return 'https://bnbsmart.fund.com/?ref=' + addr;
 	};
 
 	// console.log("personal data",props.personalData)

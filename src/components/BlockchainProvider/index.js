@@ -4,20 +4,23 @@ import { connect } from 'react-redux';
 import { accountUpdate, onContractLoaded, onPersonalDataLoaded, onContractDataLoaded } from "../../redux/actions"
 import Config from "../../Config"
 import Web3 from 'web3';
+import Web3Connect from "web3connect";
+let web3;
 const BlockchainProvider = (props) => {
-
+    // const [web3, setWeb3] = useState();
     const [account, setAccount] = useState();
     const [myTronBal, setMyTronBal] = useState();
-    const [tronWeb, setTronWeb] = useState();
     const [contract, setContract] = useState();
     const [contractData, setContractData] = useState();
     const [personalData, setPersonalData] = useState();
-    const web3 = new Web3(Web3.givenProvider);
+
     useEffect(() => {
         const interval = setInterval(() => {
-            if (contract !== undefined)
-                return;
-            loadData()
+            if (web3 === undefined) {
+                loadWeb3();
+            }
+            if (web3)
+                loadData(web3)
         }, 5000)
     }, [])
 
@@ -46,34 +49,49 @@ const BlockchainProvider = (props) => {
 
     useEffect(() => {
         initPersonalData()
-        props.dispatch(accountUpdate({
+        props.dispatch(onPersonalDataLoaded({
             personalData: personalData
         }))
     }, [contract])
 
 
-    // useEffect(() => {
-    //     props.dispatch(accountUpdate({
-    //         address: account,
-    //         myTronBal: myTronBal
-    //     }))
-    // }, [myTronBal])
+    useEffect(() => {
+        props.dispatch(accountUpdate({
+            address: account,
+            myTronBal: myTronBal
+        }))
+    }, [myTronBal])
 
     useEffect(() => {
         initContractData()
-        props.dispatch(accountUpdate({
+        props.dispatch(onPersonalDataLoaded({
             personalData: personalData
         }))
     }, [account])
 
+    const loadWeb3 = async () => {
+        const providerOptions = {
+            /* See Provider Options Section */
+        };
 
+        const web3Connect = new Web3Connect.Core({
+            network: "mainnet", // optional
+            cacheProvider: true, // optional
+            providerOptions // required
+        });
+
+        const provider = await web3Connect.connect();
+        web3 = new Web3(provider);
+
+        console.log("web3 init", new Web3(provider))
+    }
     const loadContract = async (web3, myWallet) => {
 
         const SimpleContract = await new web3.eth.Contract(Config.ABI, Config.CONTRACT_ADDRESS);
         setContract(SimpleContract)
         console.log("contt", SimpleContract)
         var accounts = await web3.eth.getAccounts()
-        console.log(accounts)
+        console.log("account", accounts)
         setAccount(accounts[0])
         console.log("accounts", accounts[0])
 
@@ -88,24 +106,28 @@ const BlockchainProvider = (props) => {
 
 
 
-    const loadData = async (_tronWeb, myWallet) => {
+    const loadData = async (web3) => {
         await fetchMyTRXBal(web3)
         await loadContract(web3, account)
     }
 
 
     const fetchMyTRXBal = async (web3) => {
-        let accounts = await web3.eth.getAccounts();
-        let bal = beautifyNumber(await web3.eth.getBalance(accounts[0]), true)
+        console.log("bal web3", web3)
+        if (web3) {
+            let accounts = await web3.eth.getAccounts();
+            let bal = beautifyNumber(await web3.eth.getBalance(accounts[0]), true)
 
-        if (bal > 0) {
-            bal = (bal)
-        } else {
-            bal = "00"
+            if (bal > 0) {
+                bal = (bal)
+            } else {
+                bal = "00"
+            }
+
+            console.log("bal", bal)
+            setMyTronBal(bal)
         }
 
-        console.log("bal", bal)
-        setMyTronBal(bal)
     }
 
     const initContractData = async () => {

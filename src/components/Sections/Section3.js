@@ -2,22 +2,17 @@ import React, { Component, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 const Section3 = (props) => {
-	const [ account, setAccount ] = useState('0x');
-	const [ tronWeb, setTronWeb ] = useState();
-
+	const [address, setAddress] = useState();
 	useEffect(
 		() => {
-			const interval = setInterval(() => {
-				if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
-					setAccount(window.tronWeb.defaultAddress.base58);
-					console.log('acc', window.tronWeb.defaultAddress.base58);
-					clearInterval(interval);
-					setTronWeb(window.tronWeb);
-				}
-			}, 500);
+			if (props.account) {
+				console.log('address---> in section3', props.account);
+				setAddress(props.account.address);
+			}
 		},
-		[ window.tronWeb ? window.tronWeb.defaultAddress.base58 : [] ]
+		[props.account]
 	);
+
 
 	return (
 		<section id="contract">
@@ -31,13 +26,13 @@ const Section3 = (props) => {
 								<li>
 									<span>Smart contract address</span>
 									<span>
-										{/* <a
+										<a
 											href={
 												props.contractData ? (
-													`https://shasta.tronscan.org/#/contract/${props.contractData
+													`https://bscscan.com/address/${props.contractData
 														.contractAddress}`
 												) : (
-													'https://shasta.tronscan.org'
+													'https://bscscan.com/address'
 												)
 											}
 											target="_blank"
@@ -48,7 +43,7 @@ const Section3 = (props) => {
 											) : (
 												'0x'
 											)}
-										</a> */}
+										</a>
 									</span>
 								</li>
 								<li>
@@ -68,27 +63,7 @@ const Section3 = (props) => {
 									<span>{props.contractData ? props.contractData.totalTRXReInvested : 0} TRX</span>
 								</li>
 								<li>
-									<span>Referred by</span>
-									<span>
-										{/* <a
-											href={
-												props.personalData ? (
-													`https://shasta.tronscan.org/#/contract/${props.personalData
-														.account}`
-												) : (
-													'https://shasta.tronscan.org'
-												)
-											}
-											target="_blank"
-											rel="noreferrer"
-										>
-											{props.personalData ? (
-												props.personalData.referredBy.slice(0, 7) + '...'
-											) : (
-												'0x'
-											)}
-										</a> */}
-									</span>
+
 								</li>
 								<li />
 								<li />
@@ -108,11 +83,11 @@ const Section3 = (props) => {
 
 									<span>
 										<a
-											href={`https://shasta.tronscan.org/#/contract/${account}`}
+											href={`https://bscscan.com/address/${address ? address : "https://bscscan.com/address"}`}
 											target="_blank"
 											rel="noreferrer"
 										>
-											{account.slice(0, 7) + '...'}
+											{address ? address.slice(0, 7) + '...' : "0x"}
 										</a>
 									</span>
 								</li>
@@ -166,7 +141,8 @@ const Section3 = (props) => {
 const mapStateToProps = (state) => {
 	return {
 		personalData: state.personalData,
-		contractData: state.contractData
+		contractData: state.contractData,
+		account: state.account
 	};
 };
 
