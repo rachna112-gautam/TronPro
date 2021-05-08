@@ -14,8 +14,7 @@ import AOS from 'aos';
 import './App.css';
 
 const App = (props) => {
-	const [address, setAddress] = useState('loading...');
-	console.log('hhfhjf', props.contract);
+	
 	useEffect(() => {
 		AOS.init({
 			duration: 2000
@@ -23,15 +22,7 @@ const App = (props) => {
 		AOS.refreshHard();
 	}, []);
 
-	useEffect(
-		() => {
-			if (props.account) {
-				console.log('addrss--->', props.account.address);
-				setAddress(props.account.address);
-			}
-		},
-		[props.account]
-	);
+	
 
 	return (
 		<div className="main">
@@ -48,9 +39,10 @@ const App = (props) => {
 			</CookieConsent>
 
 			<BlockchainProvider />
-			<Header address={address} />
+
+			<Header/>
 			<Section1 />
-			<Section2 address={address} />
+			<Section2/>
 			<Section3 />
 			<Section4 />
 			<FAQ />

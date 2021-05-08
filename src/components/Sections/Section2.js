@@ -7,10 +7,12 @@ import { Input } from 'reactstrap';
 import Config from '../../Config';
 const Section2 = (props) => {
 	const [joinValue, setJoinValue] = useState(0);
+	// eslint-disable-next-line no-unused-vars
 	const [copySuccess, setCopySuccess] = useState('');
 	const [refLink, setRefLink] = useState();
-	const [walletAddress, setWalletAddress] = useState(false);
-	const [ref, setRef] = useState(Config.CONTRACT_ADDRESS);
+	// eslint-disable-next-line no-unused-vars
+	const [address, setAddress] = useState();
+	const [ref, setRef] = useState("");
 
 	const joinHandle = (trx) => {
 		setJoinValue(joinValue + trx);
@@ -19,34 +21,32 @@ const Section2 = (props) => {
 		setJoinValue(0);
 	};
 
+
+	useEffect(
+		() => {
+			if (props.account) {
+				console.log('address---> in header', props.account);
+				setAddress(props.account.address);
+			}
+		},
+		[props.account]
+	);
+
 	useEffect(
 		() => {
 			let url = window.location.href;
 			let params = new URL(url).searchParams;
 			localStorage.setItem('ref', params.get('ref'));
-			if (localStorage.getItem('ref') != '') setRef(localStorage.getItem('ref'));
+			if (localStorage.getItem('ref') !== '') setRef(localStorage.getItem('ref'));
 		},
 		[window.location.href]
 	);
 
 	useEffect(() => {
-		if (props.address !== 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t') {
-			setWalletAddress(props.account);
-			setRefLink(getMyRefLink(props.address));
+		if (address) {
+			setRefLink(getMyRefLink(address));
 		}
-	}, []);
-
-	useEffect(
-		() => {
-			if (props.account) {
-				setWalletAddress(props.account.address);
-				setRefLink(getMyRefLink(props.address));
-			}
-
-			console.log('pros.accout', props.address);
-		},
-		[props.address]
-	);
+	}, [address]);
 
 	const deposit = async () => {
 		setJoinValue(0);
@@ -65,10 +65,10 @@ const Section2 = (props) => {
 		let params = new URL(url).searchParams;
 		let _ref = params.get('ref');
 		if (_ref === null) {
-			_ref = Config.ADMIN_WALLET;
+			_ref = "x0";
 		}
 		console.log('_ref', ref);
-		props.contract.methods.invest(_ref).send({ from: account, callValue: entryAmount * 10 ** 6 }).then(() => {
+		props.contract.methods.invest(_ref).send({ from: account, value: entryAmount * 10 ** 18 }).then(() => {
 			window.location.reload();
 		});
 	};
@@ -85,13 +85,13 @@ const Section2 = (props) => {
 			toast.error('Must have minimum 100 TRX ROI');
 			return;
 		}
-		props.contract.methods.withdrawAll().send({ from: props.personalData.walletAddress }).then(() => {
+		props.contract.methods.withdrawAll().send({ from: props.personalData.walletAddress, feeLimit: 1000000000 }).then(() => {
 			window.location.reload();
 		});
 	};
 
 	const getMyRefLink = (addr) => {
-		return 'https://tronpro.com/?ref=' + addr;
+		return 'https://bnbsmart.fund.com/?ref=' + addr;
 	};
 
 	// console.log("personal data",props.personalData)
@@ -120,7 +120,7 @@ const Section2 = (props) => {
 			toast.error('Must have minimum 100 TRX');
 			return;
 		}
-		props.contract.methods.reinvestAll().send({ from: props.personalData.walletAddress }).then(() => {
+		props.contract.methods.reinvestAll().send({ from: props.personalData.walletAddress, feeLimit: 1000000000 }).then(() => {
 			window.location.reload();
 		});
 	};
@@ -137,7 +137,7 @@ const Section2 = (props) => {
 			toast.error('Must have minimum 200 TRX');
 			return;
 		}
-		props.contract.methods.withdraw50Percent().send({ from: props.personalData.walletAddress }).then(() => {
+		props.contract.methods.withdraw50Percent().send({ from: props.personalData.walletAddress, feeLimit: 1000000000 }).then(() => {
 			window.location.reload();
 		});
 	};
@@ -169,27 +169,27 @@ const Section2 = (props) => {
 
 							<span className="minanmt">Min 100 TRX</span>
 							<div className="btnContainer">
-								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(100)}>
-									100 TRX
+								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(0.01)}>
+									0.01 BNB
 								</button>
-								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(500)}>
-									500 TRX
+								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(0.05)}>
+									0.05 BNB
 								</button>
-								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(1000)}>
-									1000 TRX
+								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(0.1)}>
+									0.1 BNB
 								</button>
-								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(10000)}>
-									10K TRX
+								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(1)}>
+									1 BNB
 								</button>
-								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(50000)}>
-									50K TRX
+								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(5)}>
+									5 BNB
 								</button>
 								<button
 									type="button"
 									className="btn btn-primary m-1"
-									onClick={() => joinHandle(100000)}
+									onClick={() => joinHandle(10)}
 								>
-									100K TRX
+									10 BNB
 								</button>
 							</div>
 							<div className="rdbtn flex-wrap">

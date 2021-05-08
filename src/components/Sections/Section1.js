@@ -5,6 +5,7 @@ import Slide2 from './../../images/slide-2.png';
 import Slide3 from './../../images/slide-3.png';
 import Slide4 from "./../../images/slide-4.jpeg";
 
+import pdf from './../../images/edited PDF TRONS.PRO.pdf';
 const Section1 = (props) => {
 	// const [timerDays, setTimerDays] = useState('00');
 	// const [timerHours, setTimerHours] = useState('00');
@@ -152,13 +153,8 @@ const Section1 = (props) => {
               <div className="amnt">
                 {props.contractData ? props.contractData.todaysROI : 0} %
               </div>
-              <a
-                className="btn"
-                href="https://www.facebook.com/groups/tronsoffical/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Join Facebook
+              <a className="btn" href={pdf} target="_blank" rel="noreferrer">
+                PDF
               </a>
             </div>
           </div>

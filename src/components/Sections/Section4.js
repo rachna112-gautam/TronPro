@@ -20,22 +20,21 @@ class Section4 extends Component {
 							<h3> GHEE Token Airdrop</h3>
 							<div className="airdrop">
 								<ul>
-									<li>No presale</li>
-									<li>No Private Sale</li>
+									<li>No presale and Private Sale</li>
 									<li>No Team Token</li>
 									<li>IDO Coming</li>
-									<li>Staking Rewards</li>
-									<li>Liquidity Pool Rewards</li>
-									<li>Yield Farming Rewards</li>
-									<li>DEX And Token Swap</li>
-									<li>Invest minimum 3000 trx get GHEE airdrop</li>
+									<li>GHEE pad - IDO Launch Pad</li>
+									<li>GHEE Swap - Yield Farming And Swap </li>
+									<li>GHEE Gallery - NFT Marketplace</li>
+									<li>Staking Rewards And Liquidity Pool Rewards</li>
+									<li>Invest minimum 1000 trx get GHEE airdrop</li>
 								</ul>
 								<div style={{ marginLeft: '-1rem' }}>
 									<strong>The More Contract Balance The Less GHEE Token Created</strong>
 								</div>
 							</div>
 						</div>
-						<div className="col-lg-6">
+						<div className="col-lg-6 daily-roi">
 							<h3 className="airdrop-heading">Daily ROI Calculation</h3>
 							<div className="airdrop">
 								<ul>
