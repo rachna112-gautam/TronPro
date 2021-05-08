@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Slide1 from './../../images/slide-1.png';
 import Slide2 from './../../images/slide-2.png';
 import Slide3 from './../../images/slide-3.png';
+import Slide4 from "./../../images/slide-4.jpeg";
 
 const Section1 = (props) => {
 	// const [timerDays, setTimerDays] = useState('00');
@@ -42,115 +43,145 @@ const Section1 = (props) => {
 	// });
 
 	return (
-		<section>
-			<div className="section1 container">
-				<div className="sec-title mb-4">
-					<h1>
-						Earn <span className="color1">300%</span> Return Upto <span className="color2">6%</span> Daily
-						ROI<br />
-						<span className="color3">5X</span> your investment with <span className="color4">GHEE</span>{' '}
-						token airdrop
-					</h1>
-				</div>
-				<div className="row mb-5">
-					<div className="col-lg-6 mb-2 ">
-						<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-							<ol className="carousel-indicators">
-								<li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
-								<li data-target="#carouselExampleIndicators" data-slide-to="1" />
-								<li data-target="#carouselExampleIndicators" data-slide-to="2" />
-							</ol>
-							<div className="carousel-inner">
-								<div className="carousel-item active">
-									<a href="#slide1">
-										<img src={Slide1} className="d-block w-100" alt="Slide 1" />
-									</a>
-								</div>
+    <section>
+      <div className="section1 container">
+        <div className="sec-title mb-4">
+          <h1>
+            Earn <span className="color1">300%</span> Return Upto{" "}
+            <span className="color2">6%</span> Daily ROI
+            <br />
+            <span className="color3">5X</span> your investment with{" "}
+            <span className="color4">GHEE</span> token airdrop
+          </h1>
+        </div>
+        <div className="row mb-5">
+          <div className="col-lg-6 mb-2 ">
+            <div
+              id="carouselExampleIndicators"
+              className="carousel slide"
+              data-ride="carousel"
+            >
+              <ol className="carousel-indicators">
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="0"
+                  className="active"
+                />
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="1"
+                />
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="2"
+                />
+              </ol>
+              <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <a href="#slide1">
+                    <img src={Slide1} className="d-block w-100" alt="Slide 1" />
+                  </a>
+                </div>
 
-								<div className="carousel-item">
-									<a href="#slide2">
-										<img src={Slide2} className="d-block w-100" alt="Slide 2" />
-									</a>
-								</div>
+                <div className="carousel-item">
+                  <a href="#slide2">
+                    <img src={Slide2} className="d-block w-100" alt="Slide 2" />
+                  </a>
+                </div>
 
-								<div className="carousel-item">
-									<a href="#slide3">
-										<img src={Slide3} className="d-block w-100" alt="Slide 3" />
-									</a>
-								</div>
-							</div>
-							<a
-								className="carousel-control-prev"
-								href="#carouselExampleIndicators"
-								role="button"
-								data-slide="prev"
-							>
-								<span className="carousel-control-prev-icon" aria-hidden="true" />
-								<span className="sr-only">Previous</span>
-							</a>
-							<a
-								className="carousel-control-next"
-								href="#carouselExampleIndicators"
-								role="button"
-								data-slide="next"
-							>
-								<span className="carousel-control-next-icon" aria-hidden="true" />
-								<span className="sr-only">Next</span>
-							</a>
-						</div>
-					</div>
-					<div className="col-lg-6 mb-1">
-						<div class="embed-responsive embed-responsive-16by9">
-							<iframe
-								title="Trons pro video"
-								class="embed-responsive-item"
-								src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-								allowfullscreen
-							/>
-						</div>
-					</div>
-				</div>
-				<div className="row my-4 top-btns">
-					<div className="col-lg-4">
-						<div className="info-box">
-							<h2>Contract Balance</h2>
-							<div className="amnt">{props.contractData ? props.contractData.contractBalance : 0}</div>
-							<a
-								className="btn"
-								href={
-									props.contractData ? (
-										`https://shasta.tronscan.org/#/contract/${props.contractData.contractAddress}`
-									) : (
-										'https://shasta.tronscan.org'
-									)
-								}
-								target="_blank"
-								rel="noreferrer"
-							>
-								Check Contract
-							</a>
-						</div>
-					</div>
-					<div className="col-lg-4">
-						<div className="info-box">
-							<h2>Today's ROI</h2>
-							<div className="amnt">{props.contractData ? props.contractData.todaysROI : 0} %</div>
-							<a className="btn" href="https://www.facebook.com/groups/tronsoffical/" target="_blank"
-								rel="noreferrer">Join Facebook</a>
-						</div>
-					</div>
-					<div className="col-lg-4">
-						<div className="info-box">
-							<h2>Total Investors</h2>
-							<div className="amnt">{props.contractData ? props.contractData.totalInvestors : 0}</div>
-							<a className="btn" href="https://t.me/trons_offical" target="_blank"
-								rel="noreferrer">Join Telegram</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+                <div className="carousel-item">
+                  <a href="#slide3">
+                    <img src={Slide3} className="d-block w-100" alt="Slide 3" />
+                  </a>
+                </div>
+              </div>
+              <a
+                className="carousel-control-prev"
+                href="#carouselExampleIndicators"
+                role="button"
+                data-slide="prev"
+              >
+                <span
+                  className="carousel-control-prev-icon"
+                  aria-hidden="true"
+                />
+                <span className="sr-only">Previous</span>
+              </a>
+              <a
+                className="carousel-control-next"
+                href="#carouselExampleIndicators"
+                role="button"
+                data-slide="next"
+              >
+                <span
+                  className="carousel-control-next-icon"
+                  aria-hidden="true"
+                />
+                <span className="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div className="col-lg-6 mb-1">
+            <img src={Slide4} className="d-block w-100" alt="Slide 1" />
+          </div>
+        </div>
+        <div className="row my-4 top-btns">
+          <div className="col-lg-4">
+            <div className="info-box">
+              <h2>Contract Balance</h2>
+              <div className="amnt">
+                {props.contractData ? props.contractData.contractBalance : 0}
+              </div>
+              <a
+                className="btn"
+                href={
+                  props.contractData
+                    ? `https://shasta.tronscan.org/#/contract/${props.contractData.contractAddress}`
+                    : "https://shasta.tronscan.org"
+                }
+                target="_blank"
+                rel="noreferrer"
+              >
+                Check Contract
+              </a>
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div className="info-box">
+              <h2>Today's ROI</h2>
+              <div className="amnt">
+                {props.contractData ? props.contractData.todaysROI : 0} %
+              </div>
+              <a
+                className="btn"
+                href="https://www.facebook.com/groups/tronsoffical/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Join Facebook
+              </a>
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div className="info-box">
+              <h2>Total Investors</h2>
+              <div className="amnt">
+                {props.contractData ? props.contractData.totalInvestors : 0}
+              </div>
+              <a
+                className="btn"
+                href="https://t.me/trons_offical"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Join Telegram
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 const mapStateToProps = (state) => {
