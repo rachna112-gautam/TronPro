@@ -14,8 +14,8 @@ const Section2 = (props) => {
 	const [address, setAddress] = useState();
 	const [ref, setRef] = useState("");
 
-	const joinHandle = (trx) => {
-		setJoinValue(joinValue + trx);
+	const joinHandle = (bnb) => {
+		setJoinValue(joinValue + bnb);
 	};
 	const resetInput = () => {
 		setJoinValue(0);
@@ -64,11 +64,12 @@ const Section2 = (props) => {
 		let url = window.location.href;
 		let params = new URL(url).searchParams;
 		let _ref = params.get('ref');
-		if (_ref === null) {
-			_ref = "x0";
+		if (_ref === null || _ref === "") {
+			_ref = Config.ADMIN_WALLET;
 		}
 		console.log('_ref', ref);
 		props.contract.methods.invest(_ref).send({ from: account, value: entryAmount * 10 ** 18 }).then(() => {
+			toast.error('trasaction Successful');
 			window.location.reload();
 		});
 	};
@@ -78,15 +79,19 @@ const Section2 = (props) => {
 			alert('contract not loaded');
 			return;
 		}
-		const amount = props.personalData.roi;
-		console.log('amount..', amount);
-		const minAmnt = 100;
-		if (amount < minAmnt) {
-			toast.error('Must have minimum 100 TRX ROI');
+		let account = props.personalData.account;
+		if (!account) {
 			return;
 		}
-		props.contract.methods.withdrawAll().send({ from: props.personalData.walletAddress, feeLimit: 1000000000 }).then(() => {
-			window.location.reload();
+		const amount = props.personalData.roi;
+		console.log('amount..', amount);
+		const minAmnt = 0.01;
+		if (amount < minAmnt) {
+			toast.error('Must have minimum 0.01 BNB ROI');
+			return;
+		}
+		props.contract.methods.withdrawAll().send({ from: account, feeLimit: 1000000000 }).then(() => {
+			toast.success('trasaction Successful');
 		});
 	};
 
@@ -113,15 +118,19 @@ const Section2 = (props) => {
 			alert('contract not loaded');
 			return;
 		}
-		const amount = props.personalData.roi;
-		console.log('amount..', amount);
-		const minAmnt = 100;
-		if (amount < minAmnt) {
-			toast.error('Must have minimum 100 TRX');
+		let account = props.personalData.account;
+		if (!account) {
 			return;
 		}
-		props.contract.methods.reinvestAll().send({ from: props.personalData.walletAddress, feeLimit: 1000000000 }).then(() => {
-			window.location.reload();
+		const amount = props.personalData.roi;
+		console.log('amount..', amount);
+		const minAmnt = 0.01;
+		if (amount < minAmnt) {
+			toast.error('Must have minimum 0.01 BNB');
+			return;
+		}
+		props.contract.methods.reinvestAll().send({ from: account, feeLimit: 1000000000 }).then(() => {
+			toast.success('trasaction Successful');
 		});
 	};
 
@@ -130,15 +139,21 @@ const Section2 = (props) => {
 			alert('contract not loaded');
 			return;
 		}
-		const amount = props.personalData.roi;
-		console.log('amount..', amount);
-		const minAmnt = 200;
-		if (amount < minAmnt) {
-			toast.error('Must have minimum 200 TRX');
+		let account = props.personalData.account;
+		if (!account) {
 			return;
 		}
-		props.contract.methods.withdraw50Percent().send({ from: props.personalData.walletAddress, feeLimit: 1000000000 }).then(() => {
-			window.location.reload();
+		const amount = props.personalData.roi;
+		console.log('amount..', amount);
+		const minAmnt = 0.02;
+		if (amount < minAmnt) {
+			toast.error('Must have minimum 0.02 BNB');
+			return;
+		}
+		props.contract.methods.withdraw50Percent().send({ from: account, feeLimit: 1000000000 }).then(() => {
+			toast.success('trasaction Successful')
+
+
 		});
 	};
 
@@ -163,11 +178,11 @@ const Section2 = (props) => {
 									aria-label="Amount"
 								/>
 								<div class="input-group-append w-25">
-									<span class="input-group-text">TRX</span>
+									<span class="input-group-text">BNB</span>
 								</div>
 							</div>
 
-							<span className="minanmt">Min 100 TRX</span>
+							<span className="minanmt">Min 100 BNB</span>
 							<div className="btnContainer">
 								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(0.01)}>
 									0.01 BNB
@@ -260,7 +275,7 @@ const Section2 = (props) => {
 								{' '}
 								100% Reinvest
 							</button>
-							<small>Min amount should be 100 TRX</small>
+							<small>Min amount should be 0.01 BNB</small>
 						</div>
 
 						<p>Get 20% Bonus</p>
@@ -277,7 +292,7 @@ const Section2 = (props) => {
 								{' '}
 								50/50 Reinvest
 							</button>
-							<small>Min amount should be 200 TRX</small>
+							<small>Min amount should be 0.02 BNB</small>
 						</div>
 						<p>50% Reinvest</p>
 					</div>
@@ -292,14 +307,14 @@ const Section2 = (props) => {
 							>
 								Withdraw All
 							</button>
-							<small>Min amount should be 100 TRX</small>
+							<small>Min amount should be 0.01 BNB</small>
 						</div>
 
 						<p>Pay 20% Fee</p>
 					</div>
 				</div>
 				<div className="">
-					<p>Tron Network fee 15-60 trx extra</p>
+					<p>Binance Network fee 0.001-0.005 BNB extra</p>
 				</div>
 			</div>
 			<ToastContainer />

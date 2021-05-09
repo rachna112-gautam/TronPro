@@ -47,20 +47,20 @@ const Section3 = (props) => {
 									</span>
 								</li>
 								<li>
-									<span>Total TRX deposited</span>
-									<span>{props.contractData ? props.contractData.totalTRXDeposit : 0} TRX</span>
+									<span>Total BNB deposited</span>
+									<span>{props.contractData ? props.contractData.totalBNBDeposit : 0} BNB</span>
 								</li>
 								<li>
 									<span>Smart contract balance</span>
-									<span>{props.contractData ? props.contractData.contractBalance : 0} TRX</span>
+									<span>{props.contractData ? props.contractData.contractBalance : 0} BNB</span>
 								</li>
 								<li>
-									<span>Total TRX withdrawn</span>
-									<span>{props.contractData ? props.contractData.totalAmountWithdrawn : 0} TRX</span>
+									<span>Total BNB withdrawn</span>
+									<span>{props.contractData ? props.contractData.totalAmountWithdrawn : 0} BNB</span>
 								</li>
 								<li>
-									<span>Total TRX ReInvested</span>
-									<span>{props.contractData ? props.contractData.totalTRXReInvested : 0} TRX</span>
+									<span>Total BNB ReInvested</span>
+									<span>{props.contractData ? props.contractData.totalBNBReInvested : 0} BNB</span>
 								</li>
 								<li>
 
@@ -94,40 +94,40 @@ const Section3 = (props) => {
 
 								<li>
 									<span>Active Amount</span>
-									<span>{props.personalData ? props.personalData.activeInvestments : 0} TRX</span>
+									<span>{props.personalData ? props.personalData.activeInvestments : 0} BNB</span>
 								</li>
 
 								<li>
 									<span>Total Invested Amount</span>
 									<span>
-										{props.personalData ? props.personalData.userTotalInvestedAmount : 0} TRX
+										{props.personalData ? props.personalData.userTotalInvestedAmount : 0} BNB
 									</span>
 								</li>
 
 								<li>
 									<span>Daily income</span>
-									<span>{props.personalData ? props.personalData.roi : 0} TRX</span>
+									<span>{props.personalData ? props.personalData.roi : 0} BNB</span>
 								</li>
 								<li>
 									<span>Referral Income Earned</span>
-									<span>{props.personalData ? props.personalData.referralIncome : 0} TRX</span>
+									<span>{props.personalData ? props.personalData.referralIncome : 0} BNB</span>
 								</li>
 
 								<li>
 									<span>ReInvest Reward Earned </span>
 									<span>
-										{props.personalData ? props.personalData.reInvestRewardEarned : '0x'} TRX
+										{props.personalData ? props.personalData.reInvestRewardEarned : '0x'} BNB
 									</span>
 								</li>
 								<li>
 									<span>Total ReInvested Amount</span>
 									<span>
-										{props.personalData ? props.personalData.userTotalReInvestedAmount : 0} TRX
+										{props.personalData ? props.personalData.userTotalReInvestedAmount : 0} BNB
 									</span>
 								</li>
 								<li>
 									<span>Income withdrawn to wallet</span>
-									<span>{props.personalData ? props.personalData.withdrawnAmount : 0} TRX</span>
+									<span>{props.personalData ? props.personalData.withdrawnAmount : 0} BNB</span>
 								</li>
 							</ul>
 						</div>

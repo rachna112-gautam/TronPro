@@ -9,12 +9,12 @@ const Footer = (props) => {
         <div class="row">
           <div class="col-md-4 logo">
             <a href="#tronspro">
-              <img src={Logo} alt="Tron Pro" class="d-block m-auto m-md-0 " />
+              <img src={Logo} alt="Binance Pro" class="d-block m-auto m-md-0 " />
             </a>
           </div>
           <div class="col-md-4 align-self-center">
             <p class="text-white copyright-text text-center">
-              Copyright ©2021 Trons.Pro, All Rights Reserved.
+              Copyright ©2021 bnbsmart.fund, All Rights Reserved.
           </p>
           </div>
           <div class="col-md-4 align-self-center">
@@ -22,11 +22,11 @@ const Footer = (props) => {
               <li class="nav-item">
                 <a class="nav-link" href="https://www.facebook.com/groups/tronsoffical/" target="_blank" rel="noreferrer">Facebook</a>
               </li>
-              <li class="nav-item">
+              {/* <li class="nav-item">
                 <a class="nav-link" href="#youtube" target="_blank">Youtube</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href={
+              </li> */}
+              {/* <li class="nav-item"> */}
+                {/* <a class="nav-link" href={
                   props.contractData ? (
                     `https://shasta.tronscan.org/#/contract/${props.contractData.contractAddress}`
                   ) : (
@@ -34,8 +34,8 @@ const Footer = (props) => {
                   )
                 }
                   target="_blank"
-                  rel="noreferrer" >Contract</a>
-              </li>
+                  rel="noreferrer" >Contract</a> */}
+              {/* </li> */}
             </ul>
           </div>
         </div>

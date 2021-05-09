@@ -7,49 +7,49 @@ import Slide4 from "./../../images/slide-4.jpeg";
 
 import pdf from './../../images/edited PDF TRONS.PRO.pdf';
 const Section1 = (props) => {
-	// const [timerDays, setTimerDays] = useState('00');
-	// const [timerHours, setTimerHours] = useState('00');
-	// const [timerMin, setTimerMin] = useState('00');
-	// const [timerSec, setTimerSec] = useState('00');
+  // const [timerDays, setTimerDays] = useState('00');
+  // const [timerHours, setTimerHours] = useState('00');
+  // const [timerMin, setTimerMin] = useState('00');
+  // const [timerSec, setTimerSec] = useState('00');
 
-	// console.log('contract data', contractData);
-	// let interval = useRef();
+  // console.log('contract data', contractData);
+  // let interval = useRef();
 
-	// const startTimer = () => {
-	// 	const countDownDate = new Date('March 8, 2021 00:00:00').getTime();
-	// 	interval = setInterval(() => {
-	// 		const now = new Date().getTime();
-	// 		const distance = countDownDate - now;
-	// 		// const days = Math.floor(distance / (1000*60*60*24));
-	// 		const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-	// 		const min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-	// 		const sec = Math.floor((distance % (1000 * 60)) / 1000);
+  // const startTimer = () => {
+  // 	const countDownDate = new Date('March 8, 2021 00:00:00').getTime();
+  // 	interval = setInterval(() => {
+  // 		const now = new Date().getTime();
+  // 		const distance = countDownDate - now;
+  // 		// const days = Math.floor(distance / (1000*60*60*24));
+  // 		const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  // 		const min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  // 		const sec = Math.floor((distance % (1000 * 60)) / 1000);
 
-	// 		if (distance < 0) {
-	// 			//stop timer
-	// 			clearInterval(interval.current);
-	// 		} else {
-	// 			//update timer
-	// 			// setTimerDays(days);
-	// 			// setTimerHours(hours);
-	// 			// setTimerMin(min);
-	// 			// setTimerSec(sec);
-	// 		}
-	// 	}, 1000);
-	// };
+  // 		if (distance < 0) {
+  // 			//stop timer
+  // 			clearInterval(interval.current);
+  // 		} else {
+  // 			//update timer
+  // 			// setTimerDays(days);
+  // 			// setTimerHours(hours);
+  // 			// setTimerMin(min);
+  // 			// setTimerSec(sec);
+  // 		}
+  // 	}, 1000);
+  // };
 
-	//componentDidMount
-	// useEffect(() => {
-	// 	startTimer();
-	// });
+  //componentDidMount
+  // useEffect(() => {
+  // 	startTimer();
+  // });
 
-	return (
+  return (
     <section>
       <div className="section1 container">
         <div className="sec-title mb-4">
           <h1>
             Earn <span className="color1">300%</span> Return Upto{" "}
-            <span className="color2">6%</span> Daily ROI
+            <span className="color2">5%</span> Daily ROI
             <br />
             <span className="color3">5X</span> your investment with{" "}
             <span className="color4">GHEE</span> token airdrop
@@ -181,6 +181,6 @@ const Section1 = (props) => {
 };
 
 const mapStateToProps = (state) => {
-	return { contractData: state.contractData };
+  return { contractData: state.contractData };
 };
 export default connect(mapStateToProps)(Section1);

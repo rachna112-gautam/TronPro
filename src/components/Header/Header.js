@@ -19,8 +19,8 @@ const Header = (props) => {
 				<div className="container-fluid px-0">
 					<nav className="navbar navbar-expand-lg navbar-dark container">
 						<a className="navbar-brand" href="#home">
-							<img src={Logo} alt="Trons Pro" className="d-inline-block align-top logo" />
-							<span className="site-title">Trons.Pro</span>
+							<img src={Logo} alt="Binances Pro" className="d-inline-block align-top logo" />
+							<span className="site-title">BnbSmartFund</span>
 						</a>
 						<button
 							className="navbar-toggler"

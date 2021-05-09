@@ -27,7 +27,7 @@ class Section4 extends Component {
 									<li>GHEE Swap - Yield Farming And Swap </li>
 									<li>GHEE Gallery - NFT Marketplace</li>
 									<li>Staking Rewards And Liquidity Pool Rewards</li>
-									<li>Invest minimum 1000 trx get GHEE airdrop</li>
+									<li>Invest minimum 0.25 bnb get GHEE airdrop</li>
 								</ul>
 								<div style={{ marginLeft: '-1rem' }}>
 									<strong>The More Contract Balance The Less GHEE Token Created</strong>
@@ -38,19 +38,19 @@ class Section4 extends Component {
 							<h3 className="airdrop-heading">Daily ROI Calculation</h3>
 							<div className="airdrop">
 								<ul>
-									<li>6% Over 50 Million TRX in Contract Balance</li>
-									<li>5% Upto 50 Million TRX in Contract Balance</li>
-									<li>4% Upto 40 Million TRX in Contract Balance</li>
-									<li>3% Upto 30 Million TRX in Contract Balance</li>
-									<li>2% Upto 20 Million TRX in Contract Balance</li>
-									<li>1% Upto 10 Million TRX in Contract Balance</li>
+
+									<li>5% over 4000 BNB in Contract Balance</li>
+									<li>4% Upto 4000 BNB in Contract Balance</li>
+									<li>3% Upto 2000 BNB in Contract Balance</li>
+									<li>2% Upto 1000 BNB in Contract Balance</li>
+									<li>1% Upto 500 BNB in Contract Balance</li>
 								</ul>
 								<div style={{ marginLeft: '-1rem' }}>
 									<strong>
 										<span style={{ color: '#f29412' }}>Total return limited to 300%</span>
 										<br />
-										Eg: 10000 trx investment will get total return 30000 trx<br />
-										Total 30000 = 10000 (capital) + 20000 (profit)
+										Eg: 10 bnb investment will get total return 30 bnb<br />
+										Total 30 = 10 (capital) + 20 (profit)
 									</strong>
 								</div>
 							</div>
