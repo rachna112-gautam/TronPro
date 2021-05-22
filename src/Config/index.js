@@ -1,5 +1,5 @@
 export default {
-	CONTRACT_ADDRESS: '0x13DBB8E08a3E8d6D9C67efd4ec15f5D2a5557b54',
+	CONTRACT_ADDRESS: '0x4494F5ae5dE1e4de30bE0c3d065c59fb4354b083',
 	ADMIN_WALLET: '0x5B38Da6a701c568545dCfcB03FcB875f56beddC4',
 	ABI: [
 		{
@@ -371,6 +371,25 @@ export default {
 				}
 			],
 			"name": "getROI",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_user",
+					"type": "address"
+				}
+			],
+			"name": "getWithdrawableAmount",
 			"outputs": [
 				{
 					"internalType": "uint256",

@@ -177,6 +177,9 @@ const BlockchainProvider = (props) => {
         let userTotalInvestedAmount = 0;
         let userTotalReInvestedAmount = 0;
         let reInvestRewardEarned = 0;
+        let withdrawableAmount = 0;
+        let launchBonus = 0;
+
         if (contract === undefined || account === undefined)
             return;
 
@@ -191,7 +194,8 @@ const BlockchainProvider = (props) => {
         userTotalInvestedAmount = beautifyNumber(userInfo.totalInvestedAmount)
         userTotalReInvestedAmount = beautifyNumber(userInfo.totalReinvestedAmount)
         reInvestRewardEarned = beautifyNumber(userInfo.reinvestRewardEarned);
-
+        withdrawableAmount = beautifyNumber((await contract.methods.getWithdrawableAmount(account).call()), true)
+        launchBonus = beautifyNumber(userInfo.launchBonus, true)
 
         setPersonalData({
             isExist,
@@ -204,7 +208,9 @@ const BlockchainProvider = (props) => {
             userTotalInvestedAmount,
             userTotalReInvestedAmount,
             reInvestRewardEarned,
-            activeInvestments
+            activeInvestments,
+            withdrawableAmount,
+            launchBonus
         })
 
         props.dispatch(onPersonalDataLoaded(personalData))
