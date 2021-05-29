@@ -69,21 +69,28 @@ class FAQ extends Component{
                       data-parent="#mainAccordion"
                     >
                       <div className="card-body">
-                        First open https://bnbsmart.fund website. Then login
-                        your web3 wallet for investing BNB. We recommend
-                        Metamask or Binance smart chain wallets.
+                        First open https://bnbsmart.fund website. Then connect
+                        your wallet. We recommend Metamask wallet. You must
+                        select the bsc mainnet in metamask and fill enough BNB
+                        in the wallet.
                         <br />
-                        For Web : tronlink wallet If you are already logged in
-                        your wallet, contract automatically connects your wallet
-                        and shows your wallet address and your BNB balance.
+                        After connecting the wallet, contract automatically
+                        shows your wallet address and your BNB balance.
                         <br />
-                        After connecting your wallet you can type the amount of
-                        BNB you want to invest in the invest column after that
-                        conform and accept the BSC network fee and complete the
-                        investment. You can check your all statistics and
+                        If you not familiar with how to link BSC network with
+                        Metamask please click the below link
+                        <br />
+                        Here you have the clear answer how to connect BSC to
+                        Metamask
+                        https://academy.binance.com/en/articles/connecting-metamask-to-binance-smart-chain
+                        <br />
+                        After connecting your wallet you can select the amount
+                        of BNB you want to invest in the invest column. After
+                        that conform and accept the BSC network fee and complete
+                        the investment. You can check your all statistics and
                         contract details in the website and do reinvest or
                         withdraw your profit daily.
-                        <br />
+                        <br/>
                       </div>
                     </div>
                   </div>
