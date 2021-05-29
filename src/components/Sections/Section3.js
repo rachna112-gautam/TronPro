@@ -129,6 +129,14 @@ const Section3 = (props) => {
 									<span>Income withdrawn to wallet</span>
 									<span>{props.personalData ? props.personalData.withdrawnAmount : 0} BNB</span>
 								</li>
+								<li>
+									<span>Launch Bonus</span>
+									<span>{props.personalData ? props.personalData.launchBonus : 0} BNB</span>
+								</li>
+								<li>
+									<span>Withdrawable Income</span>
+									<span>{props.personalData ? props.personalData.withdrawableAmount : 0} BNB</span>
+								</li>
 							</ul>
 						</div>
 					</div>

@@ -50,7 +50,7 @@ const Section2 = (props) => {
 
 	const deposit = async () => {
 		setJoinValue(0);
-		if (!props.contract) {
+		if (!props.contract && !props.personalDatas) {
 			alert('contract not loaded!');
 			return;
 		}
@@ -182,7 +182,7 @@ const Section2 = (props) => {
 								</div>
 							</div>
 
-							<span className="minanmt">Min 100 BNB</span>
+							<span className="minanmt">Min 0.01 BNB</span>
 							<div className="btnContainer">
 								<button type="button" className="btn btn-primary m-1" onClick={() => joinHandle(0.01)}>
 									0.01 BNB
