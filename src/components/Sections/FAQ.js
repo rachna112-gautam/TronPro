@@ -307,7 +307,7 @@ class FAQ extends Component{
                         project. YIELD FARMING, TOKEN SWAP, IDO Launch PAD, NFT
                         Auction place are coming under GHEE FINANCE. GHEE TOKEN
                         is the utility token for all these project which has
-                        multiple use cases. Anybody who invests minimum 0.25 BNB
+                        multiple use cases. Anybody who invests minimum 0.35 BNB
                         in https://www.bnbsmart.fund project can be eligible for
                         GHEE TOKEN AIRDROP.
                       </div>
@@ -338,7 +338,7 @@ class FAQ extends Component{
                         Yes, minimum deposit and withdrawal amount is 0.01BNB.
                         <br />
                         For the eligibility of Launching bonus and GHEE token
-                        airdrop you must invest minimum 0.25 BNB
+                        airdrop you must invest minimum 0.35 BNB
                       </div>
                     </div>
                   </div>

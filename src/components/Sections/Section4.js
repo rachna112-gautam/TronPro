@@ -27,7 +27,7 @@ class Section4 extends Component {
 									<li>GHEE Swap - Yield Farming And Swap </li>
 									<li>GHEE Gallery - NFT Marketplace</li>
 									<li>Staking Rewards And Liquidity Pool Rewards</li>
-									<li>Invest minimum 0.25 bnb get GHEE airdrop</li>
+									<li>Invest minimum 0.35 bnb get GHEE airdrop</li>
 								</ul>
 								<div style={{ marginLeft: '-1rem' }}>
 									<strong>The More Contract Balance The Less GHEE Token Created</strong>
