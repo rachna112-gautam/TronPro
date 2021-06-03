@@ -137,8 +137,8 @@ const Section1 = (props) => {
                 className="btn"
                 href={
                   props.contractData
-                    ? `https://shasta.tronscan.org/#/contract/${props.contractData.contractAddress}`
-                    : "https://shasta.tronscan.org"
+                    ? `https://bscscan.com/address/${props.contractData.contractAddress}`
+                    : "https://bscscan.com/address/"
                 }
                 target="_blank"
                 rel="noreferrer"
@@ -166,7 +166,7 @@ const Section1 = (props) => {
               </div>
               <a
                 className="btn"
-                href="https://t.me/trons_offical"
+                href="https://t.me/bnbsmartfund1"
                 target="_blank"
                 rel="noreferrer"
               >

@@ -42,7 +42,7 @@ class FAQ extends Component{
                         developers. So the investor community will drive the
                         project and earn 300% return with up to 5% daily
                         depending up on the smart contract balance. The more
-                        contract balance the more daily retur
+                        contract balance the more daily return
                       </div>
                     </div>
                   </div>
@@ -335,7 +335,7 @@ class FAQ extends Component{
                       data-parent="#mainAccordion"
                     >
                       <div className="card-body">
-                        Yes, minimum deposit and withdrawal amount is 0.01BNB.
+                        Yes, minimum deposit and withdrawal amount is 0.01 BNB.
                         <br />
                         For the eligibility of Launching bonus and GHEE token
                         airdrop you must invest minimum 0.35 BNB
@@ -364,14 +364,9 @@ class FAQ extends Component{
                       data-parent="#mainAccordion"
                     >
                       <div className="card-body">
-                        We have good support system, which you can find in two
-                        ways
-                        <br />
-                        You can directly send support queries to
-                        admin@bnbsmart.fund
-                        <br />
-                        Or you can connect through our telegram channel
-                        https://t.me/bnbsmartfund
+                        We have good support system,
+                        you can connect through our telegram group
+                        https://t.me/bnbsmartfund1
                       </div>
                     </div>
                   </div>

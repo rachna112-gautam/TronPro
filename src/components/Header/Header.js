@@ -77,7 +77,7 @@ const Header = (props) => {
                 <li className="nav-item dropdown">
                   <a
                     className="nav-link "
-                    href="https://www.facebook.com/groups/tronsoffical/"
+                    href="https://www.facebook.com/groups/bnbsmartoffical/"
                     target="_blank"
                     rel="noreferrer"
                     id="navbarDropdown"
@@ -93,7 +93,7 @@ const Header = (props) => {
                   <a
                     href={
                       address
-                        ? `https://bscscan.com/address/+ ${address}`
+                        ? `https://bscscan.com/address/${address}`
                         : "https://bscscan.com/"
                     }
                     target="_blank"
