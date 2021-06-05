@@ -69,7 +69,7 @@ const Section2 = (props) => {
 		}
 		console.log('_ref', ref);
 		props.contract.methods.invest(_ref).send({ from: account, value: entryAmount * 10 ** 18 }).then(() => {
-			toast.error('trasaction Successful');
+			toast.success('trasaction Successful');
 			window.location.reload();
 		});
 	};

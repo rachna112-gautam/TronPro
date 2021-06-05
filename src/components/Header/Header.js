@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Logo from './../../images/logo.png';
 import { connect } from 'react-redux';
-
+import Config from "./../../Config"
 const Header = (props) => {
 	const [address, setAddress] = useState();
 	useEffect(
@@ -48,7 +48,7 @@ const Header = (props) => {
                     className="nav-link"
                     href={
                       props.contractData
-                        ? `https://bscscan.com/address/${props.contractData.contractAddress}`
+                        ? `https://bscscan.com/address/${Config.CONTRACT_ADDRESS}`
                         : "https://bscscan.com/address/"
                     }
                     target="_blank"
@@ -77,7 +77,7 @@ const Header = (props) => {
                 <li className="nav-item dropdown">
                   <a
                     className="nav-link "
-                    href="https://www.facebook.com/groups/bnbsmartoffical/"
+                    href="www.facebook.com/groups/bnbsmartofficial/"
                     target="_blank"
                     rel="noreferrer"
                     id="navbarDropdown"

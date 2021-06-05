@@ -5,43 +5,10 @@ import Slide2 from './../../images/slide-2.png';
 import Slide3 from './../../images/slide-3.png';
 import Slide4 from "./../../images/slide-4.jpeg";
 
-import pdf from './../../images/edited PDF TRONS.PRO.pdf';
+import pdf from './../../images/bnbsmart.pdf';
+import Config from "./../../Config"
 const Section1 = (props) => {
-  // const [timerDays, setTimerDays] = useState('00');
-  // const [timerHours, setTimerHours] = useState('00');
-  // const [timerMin, setTimerMin] = useState('00');
-  // const [timerSec, setTimerSec] = useState('00');
 
-  // console.log('contract data', contractData);
-  // let interval = useRef();
-
-  // const startTimer = () => {
-  // 	const countDownDate = new Date('March 8, 2021 00:00:00').getTime();
-  // 	interval = setInterval(() => {
-  // 		const now = new Date().getTime();
-  // 		const distance = countDownDate - now;
-  // 		// const days = Math.floor(distance / (1000*60*60*24));
-  // 		const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  // 		const min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  // 		const sec = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // 		if (distance < 0) {
-  // 			//stop timer
-  // 			clearInterval(interval.current);
-  // 		} else {
-  // 			//update timer
-  // 			// setTimerDays(days);
-  // 			// setTimerHours(hours);
-  // 			// setTimerMin(min);
-  // 			// setTimerSec(sec);
-  // 		}
-  // 	}, 1000);
-  // };
-
-  //componentDidMount
-  // useEffect(() => {
-  // 	startTimer();
-  // });
 
   return (
     <section>
@@ -137,7 +104,7 @@ const Section1 = (props) => {
                 className="btn"
                 href={
                   props.contractData
-                    ? `https://bscscan.com/address/${props.contractData.contractAddress}`
+                    ? `https://bscscan.com/address/${Config.CONTRACT_ADDRESS}`
                     : "https://bscscan.com/address/"
                 }
                 target="_blank"

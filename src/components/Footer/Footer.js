@@ -20,7 +20,7 @@ const Footer = (props) => {
           <div class="col-md-4 align-self-center">
             <ul class="nav justify-content-center footer-links">
               <li class="nav-item">
-                <a class="nav-link" href="https://www.facebook.com/groups/bnbsmartoffical/" target="_blank" rel="noreferrer">Facebook</a>
+                <a class="nav-link" href="www.facebook.com/groups/bnbsmartofficial/" target="_blank" rel="noreferrer">Facebook</a>
               </li>
               {/* <li class="nav-item">
                 <a class="nav-link" href="#youtube" target="_blank">Youtube</a>
